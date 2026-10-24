@@ -70,28 +70,21 @@ export const CONTACTS = {
     futevoleiUrl:
       "https://wa.me/5549999486797?text=Ol%C3%A1+Jefe%2C+gostaria+de+consultar+hor%C3%A1rios+para+jogar+Futev%C3%B4lei+no+CT+Vivi+Nunes.",
     funcionalUrl:
-      "https://wa.me/5549999486797?text=Ol%C3%A1+Jefe%2C+gostaria+de+informa%C3%A7%C3%B5es+sobre+o+Treinamento+Funcional+na+areia.",
+      "https://wa.me/5549999486797?text=Ol%C3%A1+Jefe%2C+gostaria+de+informa%C3%A7%C3%B5es+sobre+loca%C3%A7%C3%A3o+de+quadras+e+areia.",
   },
   viviane: {
-    name: "Profª. Viviane Nunes",
-    role: "Idealizadora, Metodologia & Aulas",
+    name: "Profª. Vivi Nunes",
+    role: "Ex-Atleta Profissional & Aulas de Vôlei de Praia",
     phoneDisplay: "(49) 99804-3322",
     whatsappUrl:
-      "https://wa.me/5549998043322?text=Ol%C3%A1+Prof.+Viviane%2C+visitei+o+site+e+gostaria+de+informa%C3%A7%C3%B5es+sobre+as+aulas.",
-  },
-  anderson: {
-    name: "Prof. Anderson Tansini",
-    role: "Aulas & Preparação Física na Areia",
-    phoneDisplay: "(49) 9927-3900",
-    whatsappUrl:
-      "https://wa.me/554999273900?text=Ol%C3%A1+Prof.+Anderson%2C+visitei+o+site+e+gostaria+de+informa%C3%A7%C3%B5es+sobre+os+treinos.",
+      "https://wa.me/5549998043322?text=Ol%C3%A1+Prof.+Vivi%2C+visitei+o+site+e+gostaria+de+informa%C3%A7%C3%B5es+sobre+as+aulas+de+V%C3%B4lei+de+Praia.",
   },
   location: {
     address:
-      "R. Antônio Pícoli, s/n - Bairro Campo Experimental, Videira - SC, 89560-000",
-    shortAddress: "Campo Experimental, Videira - SC",
+      "R. Benedito Tomaz Scussiato, 200 - Bairro Santa Lúcia, Videira - SC, 89565-350",
+    shortAddress: "Santa Lúcia, Videira - SC",
     googleMapsDirections:
-      "https://www.google.com/maps/dir/?api=1&destination=CT+Vivi+Nunes+R.+Ant%C3%B4nio+P%C3%ADcoli+Videira+SC+89560-000",
+      "https://www.google.com/maps/search/?api=1&query=R.+Benedito+Tomaz+Scussiato%2C+200+-+Santa+L%C3%BAcia%2C+Videira+-+SC%2C+89565-350",
   },
   social: {
     instagram: "https://www.instagram.com/ct_vivinunes",
@@ -101,29 +94,29 @@ export const CONTACTS = {
 
 export const FAQ_DATA = [
   {
-    question: "Como funciona a locação de quadras avulsas e horários mensalistas?",
+    question: "Como funciona a estrutura de quadras do CT Vivi Nunes?",
     answer:
-      "Você pode alugar horários avulsos por hora para seu grupo de amigos ou fechar um plano mensalista com dia e horário fixo garantido toda semana. Basta enviar uma mensagem para o WhatsApp do Jefe para verificar a disponibilidade da grade e reservar instantaneamente.",
+      "Nosso complexo dispõe de 3 quadras oficiais de areia higienizada: 2 quadras totalmente cobertas (Quadra 1 'Yago' e Quadra 2 'Eloá'), garantindo jogos confortáveis em qualquer condição climática (sol forte, chuva ou frio), e 1 quadra descoberta ao ar livre para quem aprecia o clima da praia. Todas contam com iluminação profissional em LED.",
   },
   {
-    question: "Nunca pratiquei esportes de areia, posso agendar uma aula experimental?",
+    question: "Quais aulas são oferecidas no complexo?",
     answer:
-      "Com certeza! Nossos professores atendem desde alunos no nível iniciante absoluto (que nunca pegaram em uma raquete ou bola) até atletas avançados. A areia reduz o impacto nas articulações e torna o aprendizado natural, dinâmico e seguro.",
+      "Oferecemos aulas exclusivas de Vôlei de Praia (feminino e masculino) para todas as idades e todos os níveis, ministradas diretamente pela Profª Vivi Nunes — ex-atleta profissional de vôlei de quadra e praia com múltiplos títulos estaduais e passagens por campeonatos nacionais. Atendemos desde quem nunca tocou na bola até quem deseja aperfeiçoamento tático e de alto rendimento.",
+  },
+  {
+    question: "Como funciona a locação de quadras avulsas e horários mensalistas?",
+    answer:
+      "Você pode alugar horários avulsos por hora para seu grupo de amigos (Beach Tennis, Vôlei de Praia ou Futevôlei) ou fechar um plano mensalista com dia e horário fixo garantido toda semana. Basta enviar uma mensagem para o WhatsApp do Jefe para verificar a disponibilidade da grade e reservar instantaneamente.",
+  },
+  {
+    question: "Qual é o horário de funcionamento das quadras?",
+    answer:
+      "Funcionamos todos os dias da semana até as 23:30 hrs! Nossa iluminação potente em refletores de LED é calculada para eliminar sombras e pontos cegos, garantindo partidas noturnas com visibilidade perfeita.",
   },
   {
     question: "O complexo fornece raquetes e bolas para uso durante os jogos?",
     answer:
-      "Sim! Nas aulas, todo o material esportivo oficial (bolas oficiais, redes regulamentadas, cones e equipamentos funcionais) está incluso. Para locações livres, também disponibilizamos suporte de bolas e locação de raquetes de Beach Tennis mediante consulta prévia.",
-  },
-  {
-    question: "O treinamento funcional na areia é indicado para quem tem dores ou está sedentário?",
-    answer:
-      "Sim, é altamente recomendado! O piso de areia fofa e higienizada absorve mais de 60% do impacto mecânico em comparação com pisos rígidos ou asfalto, protegendo joelhos, tornozelos e coluna. O treino acelera o gasto calórico e fortalece a musculatura estabilizadora com total segurança e prescrição individualizada.",
-  },
-  {
-    question: "É possível jogar à noite? Como funciona a iluminação?",
-    answer:
-      "Sim! O complexo conta com sistema de iluminação potente em refletores de LED dispostos estrategicamente para eliminar pontos cegos e sombras. As quadras funcionam até as 23h de segunda a sábado.",
+      "Sim! Nas aulas de Vôlei de Praia, todo o material esportivo oficial está 100% incluso. Para locações avulsas ou mensalistas de Beach Tennis e Vôlei, também disponibilizamos suporte de bolas oficiais e suporte de raquetes mediante consulta prévia.",
   },
 ];
 
@@ -512,12 +505,7 @@ export default function HomePage() {
 
             {/* Subtítulo */}
             <p className="hero-reveal mt-6 text-base sm:text-xl text-slate-100 font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl">
-              Quadras de areia higienizada para{" "}
-              <strong className="text-white font-bold">Beach Tennis</strong>,{" "}
-              <strong className="text-white font-bold">Vôlei</strong> e{" "}
-              <strong className="text-white font-bold">Futevôlei</strong>, além de
-              treinamento funcional e aulas com acompanhamento profissional
-              qualificado.
+              Complexo com <strong className="text-white font-bold">3 quadras de areia</strong> (2 cobertas e 1 descoberta) para <strong className="text-white font-bold">Beach Tennis</strong>, <strong className="text-white font-bold">Vôlei de Praia</strong> e <strong className="text-white font-bold">Futevôlei</strong>, além de aulas exclusivas com a ex-atleta profissional <strong className="text-amber-300 font-bold">Vivi Nunes</strong>.
             </p>
 
             {/* Ação Dupla */}
@@ -534,13 +522,13 @@ export default function HomePage() {
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
-              {/* Botão Secundário: Aulas & Metodologia */}
+              {/* Botão Secundário: Aulas de Vôlei com Vivi Nunes */}
               <Link
                 href="#professores"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/40"
               >
-                <Flame className="w-5 h-5 text-amber-400" />
-                <span>Aulas e Treinamento Funcional</span>
+                <Trophy className="w-5 h-5 text-amber-400" />
+                <span>Aulas de Vôlei com Profª Vivi</span>
               </Link>
             </div>
           </div>
@@ -555,21 +543,21 @@ export default function HomePage() {
               ))}
             </div>
             <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
-              5.0 no Google (Areia Limpa e Fofa)
+              5.0 no Google (Areia Higienizada)
             </span>
           </div>
 
           <div className="flex items-center justify-center md:justify-start gap-2 py-1">
             <Trophy className="w-4 h-4 text-amber-400" />
             <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
-              Referência Esportiva Desde 2023
+              3 Quadras (2 Cobertas + 1 Descoberta)
             </span>
           </div>
 
           <div className="flex items-center justify-center md:justify-start gap-2 py-1">
             <Zap className="w-4 h-4 text-amber-400" />
             <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
-              Iluminação em LED para Jogos Noturnos
+              Aberto Todos os Dias até 23:30 (LED)
             </span>
           </div>
         </div>
@@ -796,146 +784,168 @@ export default function HomePage() {
       {/* ============================================================== */}
       {/* C.2 EQUIPE TÉCNICA & METODOLOGIA (Split Editorial Robusto)     */}
       {/* ============================================================== */}
+      {/* ============================================================== */}
+      {/* C.2 SEÇÃO EDITORIAL: PROFª VIVI NUNES (EX-ATLETA PROFISSIONAL) */}
+      {/* ============================================================== */}
       <section
         id="professores"
-        className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5"
+        className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5 relative"
       >
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">
-            <Users className="w-3.5 h-3.5" />
-            <span>Corpo Docente Especializado</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">
+            <Trophy className="w-3.5 h-3.5" />
+            <span>Ex-Atleta Profissional & Liderança Técnica</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
-            Aprenda com quem vive o esporte de areia
+            Aprenda com quem vive e respira o Vôlei de Praia
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-400">
-            Metodologia focada na evolução técnica consciente, condicionamento
-            físico e bem-estar, do iniciante que nunca pisou na areia até
-            atletas competitivos.
+            Aulas exclusivas de Vôlei de Praia feminino e masculino para todas as idades e níveis, ministradas diretamente pela fundadora e idealizadora do CT.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Card 1: Profª. Viviane Nunes */}
-          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/40 transition-all duration-300 shadow-xl">
-            <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/10 rounded-full blur-2xl -z-10 group-hover:bg-amber-500/20 transition-all" />
+        {/* Grid Editorial Split: Moldura de Foto da Atleta + Bio Completa */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Lado Esquerdo: Espaço Reservado para a Foto Oficial da Profª Vivi Nunes */}
+          <div className="lg:col-span-5 flex flex-col items-center">
+            <div className="teacher-card w-full max-w-md rounded-3xl bg-gradient-to-b from-[#1A1D21] via-[#14171A] to-[#0D0F12] border border-amber-500/30 p-5 sm:p-7 shadow-2xl relative overflow-hidden group hover:border-amber-400/60 transition-all duration-500">
+              {/* Glows de iluminação solar e areia */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/15 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-500/25 transition-all" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
-                    Idealizadora do CT
+              {/* Moldura Fotográfica Editorial */}
+              <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-black/60 border border-white/10 flex flex-col items-center justify-between p-6 text-center shadow-inner">
+                {/* Linha Decorativa Superior com Selo */}
+                <div className="w-full flex items-center justify-between z-10">
+                  <span className="px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30 backdrop-blur-md">
+                    Profª Vivi Nunes
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
-                    Profª. Viviane Nunes
-                  </h3>
-                  <p className="text-sm font-semibold text-slate-400 mt-0.5">
-                    Metodologia & Aulas Técnicas
-                  </p>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+                    <Award className="w-4 h-4" />
+                  </div>
                 </div>
-                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 flex-shrink-0">
-                  <Award className="w-7 h-7" />
+
+                {/* Centro: Arte Editorial & Placeholder Sofisticado */}
+                <div className="flex flex-col items-center justify-center my-auto py-6 z-10">
+                  <div className="relative mb-5">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-tr from-amber-500/20 via-white/10 to-amber-400/30 border border-amber-400/40 flex items-center justify-center text-amber-300 shadow-2xl shadow-amber-500/20 animate-pulse">
+                      <Trophy className="w-12 h-12" />
+                    </div>
+                    <span className="absolute -bottom-1 -right-1 flex h-6 w-6 rounded-full bg-amber-400 text-stone-950 font-black text-[10px] items-center justify-center shadow-md">
+                      ★
+                    </span>
+                  </div>
+
+                  <h4 className="text-xl font-black text-white tracking-wide">
+                    Profª. Vivi Nunes
+                  </h4>
+                  <p className="text-xs font-semibold text-amber-400 tracking-wider uppercase mt-1">
+                    Ex-Atleta Profissional
+                  </p>
+                  <span className="mt-3 px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-300 font-medium">
+                    Foto oficial a ser inserida em breve
+                  </span>
+                </div>
+
+                {/* Badge Inferior */}
+                <div className="w-full pt-4 border-t border-white/10 flex items-center justify-around text-center text-[10px] uppercase tracking-wider text-slate-400 z-10">
+                  <div>
+                    <span className="block font-black text-white text-xs text-amber-300">Múltiplos</span>
+                    <span>Títulos Estaduais</span>
+                  </div>
+                  <div className="h-6 w-px bg-white/10" />
+                  <div>
+                    <span className="block font-black text-white text-xs text-amber-300">Nacional</span>
+                    <span>Passagem de Elite</span>
+                  </div>
                 </div>
               </div>
 
-              <p className="mt-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                À frente da criação e desenvolvimento do CT, a Profª. Viviane
-                combina paixão pelos esportes de praia com uma abordagem pedagógica
-                acolhedora e motivacional. Seu foco é fazer cada aluno se sentir
-                confiante, melhorando reflexos, postura e ritmo de jogo desde o
-                primeiro treino.
-              </p>
+              {/* Informação de Contato Rápido no Card */}
+              <div className="mt-5 flex items-center justify-between text-xs text-slate-400 px-1">
+                <span>Atendimento Aulas:</span>
+                <strong className="text-amber-400 font-bold">(49) 99804-3322</strong>
+              </div>
+            </div>
+          </div>
 
-              <div className="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                  <span>Turmas femininas, masculinas e mistas</span>
+          {/* Lado Direito: História da Atleta, Títulos e Detalhes das Aulas */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Trajetória Vitoriosa</span>
+              </div>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                Da alta performance competitiva para a formação de novos atletas
+              </h3>
+              <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">
+                A <strong className="text-white font-bold">Profª Vivi Nunes</strong> é ex-atleta profissional de voleibol de quadra e de praia, com uma carreira vitoriosa construída ao longo de anos dedicados ao esporte de alto rendimento. Detentora de <strong className="text-amber-300 font-bold">vários títulos estaduais</strong> e passagens marcantes por etapas de <strong className="text-amber-300 font-bold">campeonatos nacionais</strong>, ela traz uma bagagem competitiva ímpar para Videira e região.
+              </p>
+              <p className="mt-3 text-base text-slate-300 leading-relaxed">
+                Hoje, Vivi vive integralmente da modalidade, dedicando-se com amor e disciplina ao treinamento no complexo esportivo. Seu propósito é compartilhar cada segredo tático, ajuste biomecânico e a paixão pelo vôlei com seus alunos.
+              </p>
+            </div>
+
+            {/* 3 Pilares Específicos das Aulas de Vôlei de Praia */}
+            <div className="space-y-3.5 pt-2">
+              <div className="p-4 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-3.5 hover:border-amber-500/30 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Trophy className="w-5 h-5" />
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                  <span>Aulas personalizadas para iniciantes sem experiência</span>
+                <div>
+                  <h4 className="text-base font-bold text-white">
+                    Aulas Exclusivas de Vôlei de Praia (Feminino & Masculino)
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-400 mt-0.5 leading-relaxed">
+                    Aulas focadas estritamente na modalidade de areia, garantindo dedicação total à evolução técnica de cada turma.
+                  </p>
                 </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                  <span>Acompanhamento direto e correção minuciosa</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-3.5 hover:border-amber-500/30 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-white">
+                    Para Todas as Idades e Todos os Níveis
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-400 mt-0.5 leading-relaxed">
+                    Desde o nível iniciante absoluto (que nunca praticou) até praticantes avançados. Didática paciente, acolhedora e motivadora.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-3.5 hover:border-amber-500/30 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Zap className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-base font-bold text-white">
+                    Fundamentos Sólidos & Visão Tática de Jogo
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-400 mt-0.5 leading-relaxed">
+                    Domínio de saque, manchete, levantamento, ataque e bloqueio na areia macia, com melhora visível de reflexo, condicionamento e impulsão.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="text-xs text-slate-400">
-                WhatsApp: <strong>(49) 99804-3322</strong>
-              </span>
+            {/* CTA com Botão Dourado de Contato Direto */}
+            <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
               <a
                 href={CONTACTS.viviane.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 transition-all duration-200 shadow-lg shadow-amber-500/20"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 transition-all hover:scale-105 shadow-xl shadow-amber-500/25"
               >
-                <MessageCircle className="w-4 h-4 fill-stone-950 stroke-none" />
-                <span>Falar com Profª. Viviane</span>
+                <MessageCircle className="w-5 h-5 fill-stone-950 stroke-none" />
+                <span>Agendar Aula com Profª Vivi Nunes</span>
               </a>
-            </div>
-          </div>
-
-          {/* Card 2: Prof. Anderson Tansini */}
-          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-orange-500/40 transition-all duration-300 shadow-xl">
-            <div className="absolute top-0 right-0 w-44 h-44 bg-orange-500/10 rounded-full blur-2xl -z-10 group-hover:bg-orange-500/20 transition-all" />
-
-            <div>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-orange-400">
-                    Preparação & Condicionamento
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
-                    Prof. Anderson Tansini
-                  </h3>
-                  <p className="text-sm font-semibold text-slate-400 mt-0.5">
-                    Aulas & Treinamento Físico de Areia
-                  </p>
-                </div>
-                <div className="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 flex-shrink-0">
-                  <Flame className="w-7 h-7" />
-                </div>
-              </div>
-
-              <p className="mt-6 text-slate-300 text-sm sm:text-base leading-relaxed">
-                Especialista na dinâmica biomecânica da areia, o Prof. Anderson
-                conduz treinos de alto rendimento com foco em ganho de agilidade,
-                potência muscular de salto e resistência cardiovascular, garantindo
-                que o aluno extraia o máximo de resultado com total proteção articular.
-              </p>
-
-              <div className="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
-                  <span>Preparação física específica para Beach Sports</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
-                  <span>Circuitos funcionais com alta queima calórica</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
-                  <span>Treinos táticos e correção de movimentação na areia</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="text-xs text-slate-400">
-                WhatsApp: <strong>(49) 9927-3900</strong>
+                Ou ligue direto: <strong className="text-white">(49) 99804-3322</strong>
               </span>
-              <a
-                href={CONTACTS.anderson.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 transition-all duration-200 shadow-lg shadow-amber-500/20"
-              >
-                <MessageCircle className="w-4 h-4 fill-stone-950 stroke-none" />
-                <span>Falar com Prof. Anderson</span>
-              </a>
             </div>
           </div>
         </div>
@@ -982,7 +992,37 @@ export default function HomePage() {
               </h2>
             </div>
 
-            {/* Pilar 1: Areia Fofinha & Higienizada */}
+            {/* Pilar 1: 3 Quadras Oficiais (2 Cobertas + 1 Descoberta) */}
+            <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+                <Trophy className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-white">
+                  3 Quadras Oficiais: 2 Cobertas (Yago & Eloá) e 1 Aberta
+                </h4>
+                <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+                  Infraestrutura rara e privilegiada na região: a <strong className="text-white">Quadra 1 (Yago)</strong> e a <strong className="text-white">Quadra 2 (Eloá)</strong> contam com cobertura completa para você jogar ou ter aulas protegido de chuva, frio ou sol forte. E para os dias ensolarados, nossa <strong className="text-white">Quadra 3 Descoberta</strong> traz toda a vibe da praia ao ar livre.
+                </p>
+              </div>
+            </div>
+
+            {/* Pilar 2: Iluminação Noturna em LED até 23:30 */}
+            <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+                <Zap className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-white">
+                  Aberto Todos os Dias até as 23:30 (LED Sem Pontos Cegos)
+                </h4>
+                <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+                  Atendimento diário de segunda a domingo até as 23:30 hrs! Refletores potentes em LED de alto rendimento, eliminando pontos cegos e garantindo partidas noturnas com visibilidade perfeita.
+                </p>
+              </div>
+            </div>
+
+            {/* Pilar 3: Areia Fofinha & Higienizada */}
             <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
                 <Sparkles className="w-6 h-6" />
@@ -992,59 +1032,22 @@ export default function HomePage() {
                   Areia Fofinha, Filtrada & Higienizada
                 </h4>
                 <p className="text-sm text-slate-400 mt-1 leading-relaxed">
-                  Tratamento preventivo constante contra fungos e bactérias. Areia fina,
-                  macia e sem pedriscos, garantindo toque agradável nos pés, segurança
-                  para mergulhos e saltos sem risco de arranhões.
+                  Tratamento preventivo constante contra fungos e bactérias. Areia macia, limpa e profunda, protegendo as articulações dos joelhos e coluna a cada salto e mergulho.
                 </p>
               </div>
             </div>
 
-            {/* Pilar 2: Iluminação Noturna em LED */}
+            {/* Pilar 4: Novo Endereço no Santa Lúcia */}
             <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
-                <Zap className="w-6 h-6" />
+                <MapPin className="w-6 h-6" />
               </div>
               <div>
                 <h4 className="text-lg font-bold text-white">
-                  Iluminação Noturna em LED Sem Pontos Cegos
+                  Nova Sede Ampla no Bairro Santa Lúcia
                 </h4>
                 <p className="text-sm text-slate-400 mt-1 leading-relaxed">
-                  Refletores de alta eficiência posicionados de maneira calculada
-                  para evitar sombras e ofuscamento visual durante o saque ou bolas altas,
-                  proporcionando jogos noturnos tão claros quanto de dia.
-                </p>
-              </div>
-            </div>
-
-            {/* Pilar 3: Ambiente Familiar & Social */}
-            <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
-                <Users className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-white">
-                  Ambiente Acolhedor & Espaço de Convivência
-                </h4>
-                <p className="text-sm text-slate-400 mt-1 leading-relaxed">
-                  Área social para resenha entre as partidas, quiosque coberto,
-                  banheiros e vestiários limpos para a comodidade de toda a família.
-                </p>
-              </div>
-            </div>
-
-            {/* Pilar 4: Tranquilidade no Campo Experimental */}
-            <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-white">
-                  Fácil Estacionamento & Localização Privilegiada
-                </h4>
-                <p className="text-sm text-slate-400 mt-1 leading-relaxed">
-                  Situado no bairro Campo Experimental, uma região tranquila de fácil
-                  acesso em Videira, com estacionamento amplo e seguro para você
-                  jogar sem preocupações.
+                  Novo endereço privilegiado: <strong className="text-white">R. Benedito Tomaz Scussiato, 200 - Santa Lúcia, Videira - SC</strong>. Estacionamento amplo, fácil acesso e ambiente seguro e acolhedor para toda a sua família.
                 </p>
               </div>
             </div>
@@ -1235,7 +1238,7 @@ export default function HomePage() {
             Localização & Canais de Atendimento
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base">
-            No Campo Experimental, em Videira. Estamos prontos para receber você e seus amigos.
+            No Bairro Santa Lúcia, em Videira. Estamos prontos para receber você e seus amigos.
           </p>
         </div>
 
@@ -1259,9 +1262,9 @@ export default function HomePage() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white">Endereço Oficial:</strong>
+                    <strong className="text-white">Novo Endereço Oficial:</strong>
                     <p className="text-slate-300 mt-0.5">
-                      R. Antônio Pícoli, s/n - Bairro Campo Experimental, Videira - SC, CEP 89560-000.
+                      R. Benedito Tomaz Scussiato, 200 - Bairro Santa Lúcia, Videira - SC, CEP 89565-350.
                     </p>
                   </div>
                 </div>
@@ -1271,9 +1274,9 @@ export default function HomePage() {
                   <div>
                     <strong className="text-white">Horários de Funcionamento:</strong>
                     <p className="text-slate-300 mt-0.5">
-                      Segunda a Sábado: 07h às 23h (Iluminação Noturna em LED)
+                      Aberto todos os dias: 07h às 23:30 (Iluminação Noturna em LED)
                       <br />
-                      Domingos e Feriados: 08h às 20h (Sob agendamento prévio)
+                      3 Quadras: 2 Cobertas (Yago & Eloá) e 1 Aberta
                     </p>
                   </div>
                 </div>
@@ -1361,7 +1364,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h5 className="font-bold text-white text-sm">
-                        Profª. Viviane (Aulas & Iniciação)
+                        Profª. Vivi Nunes (Aulas de Vôlei)
                       </h5>
                       <span className="text-xs text-slate-400">
                         {CONTACTS.viviane.phoneDisplay}
@@ -1369,29 +1372,6 @@ export default function HomePage() {
                     </div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
-                </a>
-
-                {/* Prof Anderson */}
-                <a
-                  href={CONTACTS.anderson.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white/5 hover:bg-orange-500/10 border border-white/10 hover:border-orange-500/30 flex items-center justify-between transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-orange-500/15 text-orange-400 flex items-center justify-center">
-                      <Flame className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h5 className="font-bold text-white text-sm">
-                        Prof. Anderson (Treinos & Físico)
-                      </h5>
-                      <span className="text-xs text-slate-400">
-                        {CONTACTS.anderson.phoneDisplay}
-                      </span>
-                    </div>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-orange-400 group-hover:translate-x-1 transition-all" />
                 </a>
               </div>
             </div>
@@ -1504,7 +1484,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link href="#professores" className="hover:text-amber-400 transition-colors">
-                    Profª. Viviane & Anderson
+                    Profª. Vivi Nunes (Aulas)
                   </Link>
                 </li>
                 <li>
@@ -1530,13 +1510,10 @@ export default function HomePage() {
                   <strong className="text-white">Locações (Jefe):</strong> (49) 99948-6797
                 </p>
                 <p>
-                  <strong className="text-white">Aulas (Profª. Viviane):</strong> (49) 99804-3322
-                </p>
-                <p>
-                  <strong className="text-white">Treinos (Prof. Anderson):</strong> (49) 9927-3900
+                  <strong className="text-white">Aulas (Profª. Vivi Nunes):</strong> (49) 99804-3322
                 </p>
                 <p className="pt-2 text-slate-500 text-xs">
-                  R. Antônio Pícoli, s/n - Campo Experimental, Videira - SC
+                  R. Benedito Tomaz Scussiato, 200 - Santa Lúcia, Videira - SC
                 </p>
               </div>
             </div>
@@ -1582,7 +1559,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWaModal(false)}
-                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
+                className="w-full text-left p-3 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
               >
                 <span>Reservar Quadra (Jefe)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -1592,19 +1569,9 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWaModal(false)}
-                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
+                className="w-full text-left p-3 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
               >
-                <span>Aulas & Iniciação (Viviane)</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-              <a
-                href={CONTACTS.anderson.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setShowWaModal(false)}
-                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-orange-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
-              >
-                <span>Treinos de Areia (Anderson)</span>
+                <span>Aulas de Vôlei (Profª Vivi Nunes)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>

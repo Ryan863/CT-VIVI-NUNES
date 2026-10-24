@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Futevôlei Videira",
     "Treinamento Funcional Areia",
     "Locação de Quadras Videira",
-    "Campo Experimental Videira",
+    "Santa Lúcia Videira",
   ],
   authors: [{ name: "CT Vivi Nunes" }],
   creator: "CT Vivi Nunes",
@@ -80,16 +80,16 @@ export default function RootLayout({
     telephone: "+55-49-99948-6797",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. Antônio Pícoli, s/n",
+      streetAddress: "R. Benedito Tomaz Scussiato, 200",
       addressLocality: "Videira",
       addressRegion: "SC",
-      postalCode: "89560-000",
+      postalCode: "89565-350",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -27.005,
-      longitude: -51.155,
+      latitude: -27.012,
+      longitude: -51.148,
     },
     url: "https://ct-vivi-nunes.vercel.app",
     priceRange: "$$",
@@ -110,15 +110,10 @@ export default function RootLayout({
           "Thursday",
           "Friday",
           "Saturday",
+          "Sunday",
         ],
         opens: "07:00",
-        closes: "23:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Sunday"],
-        opens: "08:00",
-        closes: "20:00",
+        closes: "23:30",
       },
     ],
     sameAs: ["https://www.instagram.com/ct_vivinunes"],
@@ -135,7 +130,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#0B0C0E] text-[#F8FAFC] font-sans antialiased selection:bg-emerald-500 selection:text-black">
+      <body className="min-h-screen bg-[#0B0C0E] text-[#F8FAFC] font-sans antialiased selection:bg-amber-400 selection:text-stone-950">
         {children}
       </body>
     </html>
