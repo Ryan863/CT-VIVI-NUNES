@@ -17,13 +17,11 @@ body {
   color: #f8fafc;
   font-family: var(--font-jakarta), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  selection-background-color: #22c55e;
-  selection-color: #000000;
 }
 
 ::selection {
-  background-color: #22c55e;
-  color: #052e16;
+  background-color: #f59e0b;
+  color: #0b0c0e;
 }
 
 /* Custom subtle scrollbar */
@@ -41,21 +39,7 @@ body {
   background: #3f3f46;
 }
 
-/* Glow effects */
-.glow-emerald {
-  box-shadow: 0 0 35px -5px rgba(34, 197, 94, 0.25);
-}
-
+/* Warm Solar glow */
 .glow-amber {
-  box-shadow: 0 0 35px -5px rgba(249, 115, 22, 0.25);
-}
-
-/* Shimmer animation */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
+  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.25);
 }

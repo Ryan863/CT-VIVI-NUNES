@@ -142,11 +142,11 @@ export default function HomePage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 500);
+    }, 400);
     return () => clearTimeout(timer);
   }, []);
 
-  // GSAP Animations seguras (fromTo com clearProps para nunca sumir elementos)
+  // GSAP Animations com clearProps para nunca travar visibilidade
   useGSAP(
     () => {
       // Navbar scroll background animation
@@ -273,32 +273,32 @@ export default function HomePage() {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen bg-[#0B0C0E] text-[#F8FAFC] overflow-x-hidden selection:bg-emerald-500 selection:text-black"
+      className="relative min-h-screen bg-[#0B0C0E] text-[#F8FAFC] overflow-x-hidden selection:bg-amber-500 selection:text-black"
     >
       {/* ============================================================== */}
-      {/* A. NAVBAR EDITORIAL (Sticky com Blur e Logo Tipográfica)       */}
+      {/* A. NAVBAR EDITORIAL (Sticky com Blur e Paleta Solar Refinada)  */}
       {/* ============================================================== */}
       <header
         id="main-navbar"
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent bg-transparent"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Logo Tipográfica Oficial (Sem caixa branca, refinada) */}
+          {/* Logo Tipográfica Oficial (Cores Quentes/Solares e Elegantes) */}
           <Link
             href="#hero"
-            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-xl py-1 px-2 -ml-2 transition-colors hover:bg-white/5"
+            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-xl py-1 px-2 -ml-2 transition-colors hover:bg-white/5"
           >
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white font-syne">
                   CT
                 </span>
-                <span className="font-black text-2xl sm:text-3xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent font-syne drop-shadow-[0_2px_12px_rgba(34,197,94,0.3)]">
+                <span className="font-black text-2xl sm:text-3xl tracking-tight bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent font-syne drop-shadow-[0_2px_12px_rgba(245,158,11,0.25)]">
                   VIVI NUNES
                 </span>
-                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                <span className="h-2 w-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.8)]" />
               </div>
-              <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-slate-400 group-hover:text-emerald-400 transition-colors -mt-0.5">
+              <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-stone-400 group-hover:text-amber-300 transition-colors -mt-0.5">
                 Complexo de Areia • Videira
               </span>
             </div>
@@ -308,51 +308,51 @@ export default function HomePage() {
           <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
             <Link
               href="#modalidades"
-              className="hover:text-emerald-400 transition-colors duration-200"
+              className="hover:text-amber-400 transition-colors duration-200"
             >
               Modalidades
             </Link>
             <Link
               href="#locacao"
-              className="hover:text-emerald-400 transition-colors duration-200"
+              className="hover:text-amber-400 transition-colors duration-200"
             >
               Locação
             </Link>
             <Link
               href="#professores"
-              className="hover:text-emerald-400 transition-colors duration-200"
+              className="hover:text-amber-400 transition-colors duration-200"
             >
               Professores & Aulas
             </Link>
             <Link
               href="#estrutura"
-              className="hover:text-emerald-400 transition-colors duration-200"
+              className="hover:text-amber-400 transition-colors duration-200"
             >
               Nossa Estrutura
             </Link>
             <Link
               href="#avaliacoes"
-              className="hover:text-emerald-400 transition-colors duration-200"
+              className="hover:text-amber-400 transition-colors duration-200"
             >
               Avaliações (5.0★)
             </Link>
             <Link
               href="#localizacao"
-              className="hover:text-emerald-400 transition-colors duration-200"
+              className="hover:text-amber-400 transition-colors duration-200"
             >
               Localização
             </Link>
           </nav>
 
-          {/* CTA Direita Desktop */}
+          {/* CTA Direita Desktop (Dourado Solar de Alto Padrão) */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={CONTACTS.jefe.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full text-sm font-bold tracking-wide uppercase bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-lg shadow-emerald-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="relative inline-flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-full text-sm font-bold tracking-wide uppercase bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 shadow-lg shadow-amber-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
             >
-              <MessageCircle className="w-4 h-4 stroke-[2.5]" />
+              <MessageCircle className="w-4 h-4 fill-stone-950 stroke-none" />
               <span>Reservar Quadra</span>
             </a>
           </div>
@@ -360,7 +360,7 @@ export default function HomePage() {
           {/* Botão Menu Mobile */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-emerald-400 transition-colors"
+            className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-amber-400 transition-colors"
             aria-label="Abrir Menu de Navegação"
           >
             {mobileMenuOpen ? (
@@ -378,7 +378,7 @@ export default function HomePage() {
               <Link
                 href="#modalidades"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-emerald-400 flex items-center justify-between"
+                className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
                 <span>Modalidades Esportivas</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -386,7 +386,7 @@ export default function HomePage() {
               <Link
                 href="#locacao"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-emerald-400 flex items-center justify-between"
+                className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
                 <span>Locação de Quadras</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -394,7 +394,7 @@ export default function HomePage() {
               <Link
                 href="#professores"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-emerald-400 flex items-center justify-between"
+                className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
                 <span>Professores & Metodologia</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -402,7 +402,7 @@ export default function HomePage() {
               <Link
                 href="#estrutura"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-emerald-400 flex items-center justify-between"
+                className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
                 <span>Diferenciais da Estrutura</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -410,7 +410,7 @@ export default function HomePage() {
               <Link
                 href="#avaliacoes"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-emerald-400 flex items-center justify-between"
+                className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
                 <span>Avaliações dos Alunos (5.0★)</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -418,7 +418,7 @@ export default function HomePage() {
               <Link
                 href="#localizacao"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-emerald-400 flex items-center justify-between"
+                className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
                 <span>Localização & Contato</span>
                 <ArrowRight className="w-4 h-4 text-slate-500" />
@@ -429,9 +429,9 @@ export default function HomePage() {
                   href={CONTACTS.jefe.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 rounded-xl font-bold text-center text-sm uppercase tracking-wide bg-emerald-500 text-slate-950 flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25"
+                  className="w-full py-3.5 rounded-xl font-bold text-center text-sm uppercase tracking-wide bg-gradient-to-r from-amber-400 to-amber-500 text-stone-950 flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <MessageCircle className="w-5 h-5 fill-stone-950 stroke-none" />
                   Reservar com Jefe no WhatsApp
                 </a>
                 <a
@@ -440,7 +440,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-xl font-medium text-center text-sm text-slate-300 bg-white/5 border border-white/10 flex items-center justify-center gap-2"
                 >
-                  <InstagramIcon className="w-4 h-4 text-orange-400" />
+                  <InstagramIcon className="w-4 h-4 text-amber-400" />
                   Seguir @ct_vivinunes
                 </a>
               </div>
@@ -450,13 +450,13 @@ export default function HomePage() {
       </header>
 
       {/* ============================================================== */}
-      {/* B. 1ª DOBRA: HERO SECTION (IMAGENS 100% VISÍVEIS EM TELA CHEIA)*/}
+      {/* B. 1ª DOBRA: HERO SECTION (TEXTO NO LADO ESQUERDO NO DESKTOP)  */}
       {/* ============================================================== */}
       <section
         id="hero"
         className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black"
       >
-        {/* Layer 0: Imagem Desktop (16:9) em tela cheia garantida */}
+        {/* Layer 0: Imagem Desktop (16:9) em tela cheia com a bola e rede à direita */}
         <div className="hidden md:block absolute inset-0 z-0">
           <Image
             src={ASSETS.heroDesktop}
@@ -469,7 +469,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Layer 0: Imagem Mobile (9:16) em tela cheia garantida */}
+        {/* Layer 0: Imagem Mobile (9:16) */}
         <div className="block md:hidden absolute inset-0 z-0">
           <Image
             src={ASSETS.heroMobile}
@@ -482,70 +482,73 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Layer 1: Overlay Suave para proteger a leitura sem apagar a foto dourada da quadra */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/50 to-[#0B0C0E]/25 pointer-events-none" />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-transparent to-[#0B0C0E] pointer-events-none" />
+        {/* Layer 1: Overlay Inteligente (Degradê lateral à esquerda para leitura perfeita, mantendo a bola e o pôr do sol limpos à direita) */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/85 via-black/55 md:via-black/35 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-transparent to-transparent pointer-events-none" />
 
-        {/* Layer 2: Conteúdo Central Hero */}
-        <div className="relative z-10 max-w-5xl mx-auto my-auto w-full text-center flex flex-col items-center pt-8">
-          {/* Eyebrow Badge Editorial */}
-          <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 backdrop-blur-md mb-6 shadow-lg shadow-black/40">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-            </span>
-            <span className="text-xs sm:text-sm font-black tracking-widest uppercase text-emerald-400">
-              Complexo Esportivo de Areia • Videira - SC
-            </span>
-          </div>
+        {/* Layer 2: Conteúdo Hero Alinhado à Esquerda no Desktop (Espaço nobre aberto) */}
+        <div className="relative z-10 max-w-7xl mx-auto my-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-6 pb-6">
+          <div className="max-w-2xl lg:max-w-3xl">
+            {/* Eyebrow Badge Editorial */}
+            <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 backdrop-blur-md mb-6 shadow-lg shadow-black/40">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+              </span>
+              <span className="text-xs sm:text-sm font-black tracking-widest uppercase text-amber-300">
+                Complexo Esportivo de Areia • Videira - SC
+              </span>
+            </div>
 
-          {/* H1 Imponente */}
-          <h1 className="hero-reveal font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tight text-white max-w-4xl leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-            Viva a energia da praia no{" "}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
-              coração de Videira
-            </span>
-            .
-          </h1>
+            {/* H1 Imponente */}
+            <h1 className="hero-reveal font-extrabold text-4xl sm:text-6xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              Viva a energia da praia no{" "}
+              <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent">
+                coração de Videira
+              </span>
+              .
+            </h1>
 
-          {/* Subtítulo Conversivo */}
-          <p className="hero-reveal mt-6 text-base sm:text-xl text-slate-100 max-w-2xl font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-            Quadras de areia higienizada para{" "}
-            <strong className="text-white font-bold">Beach Tennis</strong>,{" "}
-            <strong className="text-white font-bold">Vôlei</strong> e{" "}
-            <strong className="text-white font-bold">Futevôlei</strong>, além de
-            treinamento funcional e aulas com acompanhamento profissional
-            qualificado.
-          </p>
+            {/* Subtítulo */}
+            <p className="hero-reveal mt-6 text-base sm:text-xl text-slate-100 font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] max-w-xl">
+              Quadras de areia higienizada para{" "}
+              <strong className="text-white font-bold">Beach Tennis</strong>,{" "}
+              <strong className="text-white font-bold">Vôlei</strong> e{" "}
+              <strong className="text-white font-bold">Futevôlei</strong>, além de
+              treinamento funcional e aulas com acompanhamento profissional
+              qualificado.
+            </p>
 
-          {/* Ação Dupla Direcionada (CRO Multi-Intenção) */}
-          <div className="hero-reveal mt-9 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            {/* Botão Primário: WhatsApp Jefe */}
-            <a
-              href={CONTACTS.jefe.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-2xl shadow-emerald-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
-            >
-              <MessageCircle className="w-5 h-5 fill-slate-950 stroke-none" />
-              <span>Alugar Quadra com Jefe</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            {/* Ação Dupla */}
+            <div className="hero-reveal mt-9 flex flex-col sm:flex-row items-center md:items-start gap-4 w-full sm:w-auto">
+              {/* Botão Primário: WhatsApp Jefe (Dourado Solar de Alto Padrão) */}
+              <a
+                href={CONTACTS.jefe.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-black uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 shadow-2xl shadow-amber-500/30 transition-all duration-300 hover:scale-105 active:scale-95"
+              >
+                <MessageCircle className="w-5 h-5 fill-stone-950 stroke-none" />
+                <span>Alugar Quadra com Jefe</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
 
-            {/* Botão Secundário: Aulas & Metodologia */}
-            <Link
-              href="#professores"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-slate-100 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/50"
-            >
-              <Flame className="w-5 h-5 text-amber-400" />
-              <span>Aulas e Treinamento Funcional</span>
-            </Link>
+              {/* Botão Secundário: Aulas & Metodologia */}
+              <Link
+                href="#professores"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/40"
+              >
+                <Flame className="w-5 h-5 text-amber-400" />
+                <span>Aulas e Treinamento Funcional</span>
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Layer 2: Barra Inferior de Autoridade / Trust Badges */}
-        <div className="hero-reveal relative z-10 max-w-5xl mx-auto w-full mt-10 pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-          <div className="flex items-center justify-center gap-2.5 py-1">
+        <div className="hero-reveal relative z-10 max-w-7xl mx-auto w-full mt-8 pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start gap-2.5 py-1">
             <div className="flex text-amber-400">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
@@ -556,14 +559,14 @@ export default function HomePage() {
             </span>
           </div>
 
-          <div className="flex items-center justify-center gap-2 py-1">
-            <Trophy className="w-4 h-4 text-emerald-400" />
+          <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+            <Trophy className="w-4 h-4 text-amber-400" />
             <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
               Referência Esportiva Desde 2023
             </span>
           </div>
 
-          <div className="flex items-center justify-center gap-2 py-1">
+          <div className="flex items-center justify-center md:justify-start gap-2 py-1">
             <Zap className="w-4 h-4 text-amber-400" />
             <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
               Iluminação em LED para Jogos Noturnos
@@ -579,9 +582,9 @@ export default function HomePage() {
         id="modalidades"
         className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative"
       >
-        {/* Glow de fundo */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        {/* Glow suave e quente */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">
@@ -600,7 +603,7 @@ export default function HomePage() {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Card 1: Beach Tennis */}
-          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
+          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
             <div>
               <div className="flex items-center justify-between mb-5">
                 <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/20">
@@ -619,11 +622,11 @@ export default function HomePage() {
               </p>
               <ul className="mt-5 space-y-2 text-xs font-medium text-slate-300">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>Raquetes e bolas disponíveis</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>Horários avulsos ou mensalistas</span>
                 </li>
               </ul>
@@ -632,7 +635,7 @@ export default function HomePage() {
               href={CONTACTS.jefe.beachTennisUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-emerald-500 hover:text-slate-950 text-white border border-white/10 transition-all duration-200"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white border border-white/10 transition-all duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Alugar Beach Tennis</span>
@@ -640,17 +643,17 @@ export default function HomePage() {
           </div>
 
           {/* Card 2: Vôlei de Praia */}
-          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
+          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-blue-500/15 text-blue-400 border border-blue-500/20">
+                <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/20">
                   Tradição & Salto
                 </span>
-                <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
                   <Trophy className="w-5 h-5" />
                 </div>
               </div>
-              <h3 className="text-2xl font-black text-white group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl font-black text-white group-hover:text-amber-400 transition-colors">
                 Vôlei de Praia
               </h3>
               <p className="mt-3 text-sm text-slate-400 leading-relaxed">
@@ -659,11 +662,11 @@ export default function HomePage() {
               </p>
               <ul className="mt-5 space-y-2 text-xs font-medium text-slate-300">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>Redes com regulagem oficial</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>Areia profunda para impulsão</span>
                 </li>
               </ul>
@@ -672,7 +675,7 @@ export default function HomePage() {
               href={CONTACTS.jefe.voleiUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-emerald-500 hover:text-slate-950 text-white border border-white/10 transition-all duration-200"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white border border-white/10 transition-all duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Alugar Vôlei de Areia</span>
@@ -680,17 +683,17 @@ export default function HomePage() {
           </div>
 
           {/* Card 3: Futevôlei */}
-          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
+          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">
+                <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-orange-500/15 text-orange-400 border border-orange-500/20">
                   Técnica Pura
                 </span>
-                <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
                   <Zap className="w-5 h-5" />
                 </div>
               </div>
-              <h3 className="text-2xl font-black text-white group-hover:text-emerald-400 transition-colors">
+              <h3 className="text-2xl font-black text-white group-hover:text-orange-400 transition-colors">
                 Futevôlei
               </h3>
               <p className="mt-3 text-sm text-slate-400 leading-relaxed">
@@ -699,11 +702,11 @@ export default function HomePage() {
               </p>
               <ul className="mt-5 space-y-2 text-xs font-medium text-slate-300">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-orange-400 flex-shrink-0" />
                   <span>Bola Mikasa oficial disponível</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-orange-400 flex-shrink-0" />
                   <span>Turmas de iniciação e avançado</span>
                 </li>
               </ul>
@@ -712,7 +715,7 @@ export default function HomePage() {
               href={CONTACTS.jefe.futevoleiUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-emerald-500 hover:text-slate-950 text-white border border-white/10 transition-all duration-200"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white border border-white/10 transition-all duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Alugar Futevôlei</span>
@@ -720,17 +723,17 @@ export default function HomePage() {
           </div>
 
           {/* Card 4: Funcional na Areia */}
-          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
+          <div className="bento-card group relative flex flex-col justify-between p-7 rounded-3xl bg-[#14171A] border border-white/10 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1 shadow-xl">
             <div>
               <div className="flex items-center justify-between mb-5">
-                <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-orange-500/15 text-orange-400 border border-orange-500/20">
+                <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-500/15 text-amber-400 border border-amber-500/20">
                   Alta Intensidade
                 </span>
-                <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
                   <Dumbbell className="w-5 h-5" />
                 </div>
               </div>
-              <h3 className="text-2xl font-black text-white group-hover:text-orange-400 transition-colors">
+              <h3 className="text-2xl font-black text-white group-hover:text-amber-400 transition-colors">
                 Funcional na Areia
               </h3>
               <p className="mt-3 text-sm text-slate-400 leading-relaxed">
@@ -740,11 +743,11 @@ export default function HomePage() {
               </p>
               <ul className="mt-5 space-y-2 text-xs font-medium text-slate-300">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>Proteção contra lesões articulares</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
                   <span>Prescrição com profissionais formados</span>
                 </li>
               </ul>
@@ -753,7 +756,7 @@ export default function HomePage() {
               href={CONTACTS.jefe.funcionalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-emerald-500 hover:text-slate-950 text-white border border-white/10 transition-all duration-200"
+              className="mt-8 inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white border border-white/10 transition-all duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Consultar Funcional</span>
@@ -764,10 +767,10 @@ export default function HomePage() {
         {/* Banner de Chamada para Locação Mensalista e Grupos */}
         <div
           id="locacao"
-          className="mt-12 rounded-3xl p-8 sm:p-10 bg-gradient-to-r from-emerald-950/40 via-stone-900 to-amber-950/30 border border-emerald-500/20 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-12 rounded-3xl p-8 sm:p-10 bg-gradient-to-r from-amber-950/30 via-stone-900 to-orange-950/30 border border-amber-500/20 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="max-w-2xl">
-            <span className="text-emerald-400 text-xs font-extrabold uppercase tracking-widest">
+            <span className="text-amber-400 text-xs font-extrabold uppercase tracking-widest">
               Planos Mensalistas & Eventos Corporativos
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-white mt-2">
@@ -782,7 +785,7 @@ export default function HomePage() {
             href={CONTACTS.jefe.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-auto flex-shrink-0 inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all hover:scale-105 shadow-xl shadow-emerald-500/20"
+            className="w-full md:w-auto flex-shrink-0 inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 transition-all hover:scale-105 shadow-xl shadow-amber-500/20"
           >
             <Calendar className="w-4 h-4" />
             <span>Consultar Grade com Jefe</span>
@@ -798,7 +801,7 @@ export default function HomePage() {
         className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5"
       >
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-wider text-amber-400 mb-4">
             <Users className="w-3.5 h-3.5" />
             <span>Corpo Docente Especializado</span>
           </div>
@@ -814,13 +817,13 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1: Profª. Viviane Nunes */}
-          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/40 transition-all duration-300 shadow-xl">
-            <div className="absolute top-0 right-0 w-44 h-44 bg-emerald-500/10 rounded-full blur-2xl -z-10 group-hover:bg-emerald-500/20 transition-all" />
+          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/40 transition-all duration-300 shadow-xl">
+            <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/10 rounded-full blur-2xl -z-10 group-hover:bg-amber-500/20 transition-all" />
 
             <div>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+                  <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
                     Idealizadora do CT
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
@@ -830,7 +833,7 @@ export default function HomePage() {
                     Metodologia & Aulas Técnicas
                   </p>
                 </div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 flex-shrink-0">
                   <Award className="w-7 h-7" />
                 </div>
               </div>
@@ -845,15 +848,15 @@ export default function HomePage() {
 
               <div className="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
                   <span>Turmas femininas, masculinas e mistas</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
                   <span>Aulas personalizadas para iniciantes sem experiência</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
                   <span>Acompanhamento direto e correção minuciosa</span>
                 </div>
               </div>
@@ -867,22 +870,22 @@ export default function HomePage() {
                 href={CONTACTS.viviane.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition-all duration-200 shadow-lg shadow-emerald-500/20"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 transition-all duration-200 shadow-lg shadow-amber-500/20"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 fill-stone-950 stroke-none" />
                 <span>Falar com Profª. Viviane</span>
               </a>
             </div>
           </div>
 
           {/* Card 2: Prof. Anderson Tansini */}
-          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/40 transition-all duration-300 shadow-xl">
-            <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/10 rounded-full blur-2xl -z-10 group-hover:bg-amber-500/20 transition-all" />
+          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-orange-500/40 transition-all duration-300 shadow-xl">
+            <div className="absolute top-0 right-0 w-44 h-44 bg-orange-500/10 rounded-full blur-2xl -z-10 group-hover:bg-orange-500/20 transition-all" />
 
             <div>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
+                  <span className="text-xs font-bold uppercase tracking-widest text-orange-400">
                     Preparação & Condicionamento
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
@@ -892,7 +895,7 @@ export default function HomePage() {
                     Aulas & Treinamento Físico de Areia
                   </p>
                 </div>
-                <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 flex-shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 flex-shrink-0">
                   <Flame className="w-7 h-7" />
                 </div>
               </div>
@@ -906,15 +909,15 @@ export default function HomePage() {
 
               <div className="mt-6 space-y-2.5 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
                   <span>Preparação física específica para Beach Sports</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
                   <span>Circuitos funcionais com alta queima calórica</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                  <CheckCircle2 className="w-4 h-4 text-orange-400" />
                   <span>Treinos táticos e correção de movimentação na areia</span>
                 </div>
               </div>
@@ -928,9 +931,9 @@ export default function HomePage() {
                 href={CONTACTS.anderson.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider bg-amber-500 hover:bg-amber-400 text-slate-950 transition-all duration-200 shadow-lg shadow-amber-500/20"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 transition-all duration-200 shadow-lg shadow-amber-500/20"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 fill-stone-950 stroke-none" />
                 <span>Falar com Prof. Anderson</span>
               </a>
             </div>
@@ -959,7 +962,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mt-6">
-              <span className="text-xs font-black tracking-widest uppercase text-emerald-400">
+              <span className="text-xs font-black tracking-widest uppercase text-amber-400">
                 Padrão Premium Garantido
               </span>
               <p className="text-xs text-slate-400 mt-1 max-w-xs">
@@ -998,7 +1001,7 @@ export default function HomePage() {
 
             {/* Pilar 2: Iluminação Noturna em LED */}
             <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
                 <Zap className="w-6 h-6" />
               </div>
               <div>
@@ -1030,7 +1033,7 @@ export default function HomePage() {
             </div>
 
             {/* Pilar 4: Tranquilidade no Campo Experimental */}
-            <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-purple-500/20 text-purple-400 flex items-start gap-4">
+            <div className="structure-pillar p-5 sm:p-6 rounded-2xl bg-[#14171A] border border-white/10 flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -1089,7 +1092,7 @@ export default function HomePage() {
                 <h5 className="font-bold text-white text-sm">Gabriela Serena</h5>
                 <span className="text-xs text-slate-400">Avaliação do Google</span>
               </div>
-              <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-emerald-400">
+              <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-amber-400">
                 G
               </div>
             </div>
@@ -1112,7 +1115,7 @@ export default function HomePage() {
                 <h5 className="font-bold text-white text-sm">Ivonete Soligo</h5>
                 <span className="text-xs text-slate-400">Avaliação do Google</span>
               </div>
-              <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-amber-400">
+              <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-orange-400">
                 I
               </div>
             </div>
@@ -1137,7 +1140,7 @@ export default function HomePage() {
                 <h5 className="font-bold text-white text-sm">Marcos Vinícius</h5>
                 <span className="text-xs text-slate-400">Atleta Mensalista</span>
               </div>
-              <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-blue-400">
+              <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-xs font-bold text-amber-400">
                 M
               </div>
             </div>
@@ -1171,7 +1174,7 @@ export default function HomePage() {
         className="py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-white/5"
       >
         <div className="text-center mb-16">
-          <span className="text-emerald-400 text-xs font-bold uppercase tracking-wider">
+          <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">
             Tire Suas Dúvidas
           </span>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mt-2">
@@ -1200,7 +1203,7 @@ export default function HomePage() {
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-emerald-500/20 text-emerald-400" : "text-slate-400"
+                      isOpen ? "rotate-180 bg-amber-500/20 text-amber-400" : "text-slate-400"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -1241,7 +1244,7 @@ export default function HomePage() {
           <div className="lg:col-span-7 rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                <div className="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
@@ -1254,7 +1257,7 @@ export default function HomePage() {
 
               <div className="space-y-4 text-sm sm:text-base text-slate-300">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white">Endereço Oficial:</strong>
                     <p className="text-slate-300 mt-0.5">
@@ -1276,7 +1279,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <InstagramIcon className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                  <InstagramIcon className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-white">Instagram Oficial:</strong>
                     <p className="mt-0.5">
@@ -1284,7 +1287,7 @@ export default function HomePage() {
                         href={CONTACTS.social.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-emerald-400 hover:underline font-semibold"
+                        className="text-amber-400 hover:underline font-semibold"
                       >
                         @ct_vivinunes
                       </a>
@@ -1302,7 +1305,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full font-bold text-sm uppercase tracking-wider bg-white/10 hover:bg-white/20 text-white border border-white/15 transition-all duration-200"
               >
-                <Navigation className="w-4 h-4 text-emerald-400" />
+                <Navigation className="w-4 h-4 text-amber-400" />
                 <span>Traçar Rota no Google Maps / Waze</span>
               </a>
             </div>
@@ -1311,7 +1314,7 @@ export default function HomePage() {
           {/* Card Direito: Central Direta com a Equipe */}
           <div className="lg:col-span-5 rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
                 Atendimento Rápido
               </span>
               <h3 className="text-2xl font-black text-white mt-1">
@@ -1327,10 +1330,10 @@ export default function HomePage() {
                   href={CONTACTS.jefe.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white/5 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/30 flex items-center justify-between transition-all"
+                  className="group p-4 rounded-2xl bg-white/5 hover:bg-amber-500/10 border border-white/10 hover:border-amber-500/30 flex items-center justify-between transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center">
                       <Calendar className="w-5 h-5" />
                     </div>
                     <div>
@@ -1342,7 +1345,7 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                 </a>
 
                 {/* Profª Viviane */}
@@ -1350,10 +1353,10 @@ export default function HomePage() {
                   href={CONTACTS.viviane.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white/5 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/30 flex items-center justify-between transition-all"
+                  className="group p-4 rounded-2xl bg-white/5 hover:bg-amber-500/10 border border-white/10 hover:border-amber-500/30 flex items-center justify-between transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center">
                       <Award className="w-5 h-5" />
                     </div>
                     <div>
@@ -1365,7 +1368,7 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                 </a>
 
                 {/* Prof Anderson */}
@@ -1373,10 +1376,10 @@ export default function HomePage() {
                   href={CONTACTS.anderson.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white/5 hover:bg-amber-500/10 border border-white/10 hover:border-amber-500/30 flex items-center justify-between transition-all"
+                  className="group p-4 rounded-2xl bg-white/5 hover:bg-orange-500/10 border border-white/10 hover:border-orange-500/30 flex items-center justify-between transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl bg-orange-500/15 text-orange-400 flex items-center justify-center">
                       <Flame className="w-5 h-5" />
                     </div>
                     <div>
@@ -1388,7 +1391,7 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-orange-400 group-hover:translate-x-1 transition-all" />
                 </a>
               </div>
             </div>
@@ -1404,14 +1407,14 @@ export default function HomePage() {
       {/* C.7 FOOTER DE CONVERSÃO & CRÉDITOS INSTITUCIONAIS              */}
       {/* ============================================================== */}
       <footer className="relative bg-[#07080A] border-t border-white/10 pt-20 pb-12 overflow-hidden">
-        {/* Glow sutil */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+        {/* Glow sutil quente */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Banner Pré-Footer de Conversão Rápida */}
           <div className="mb-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#14171A] to-[#0B0C0E] border border-white/10 text-center relative overflow-hidden">
             <div className="max-w-2xl mx-auto">
-              <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20">
                 Viva a Experiência da Areia
               </span>
               <h3 className="text-3xl sm:text-4xl font-black text-white mt-4">
@@ -1426,9 +1429,9 @@ export default function HomePage() {
                   href={CONTACTS.jefe.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-xl shadow-emerald-500/25 transition-all hover:scale-105"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-black text-sm uppercase tracking-wider bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 shadow-xl shadow-amber-500/25 transition-all hover:scale-105"
                 >
-                  <MessageCircle className="w-5 h-5 fill-slate-950 stroke-none" />
+                  <MessageCircle className="w-5 h-5 fill-stone-950 stroke-none" />
                   <span>Reservar Quadra com Jefe</span>
                 </a>
                 <a
@@ -1451,10 +1454,10 @@ export default function HomePage() {
                 <span className="font-extrabold text-2xl tracking-tight text-white font-syne">
                   CT
                 </span>
-                <span className="font-black text-2xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent font-syne">
+                <span className="font-black text-2xl tracking-tight bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent font-syne">
                   VIVI NUNES
                 </span>
-                <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                <span className="h-2 w-2 rounded-full bg-amber-400" />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
                 Complexo Esportivo de Areia com foco em Beach Tennis, Vôlei de
@@ -1466,7 +1469,7 @@ export default function HomePage() {
                   href={CONTACTS.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 transition-colors"
+                  className="p-2.5 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors"
                   aria-label="Instagram Oficial"
                 >
                   <InstagramIcon className="w-5 h-5" />
@@ -1475,7 +1478,7 @@ export default function HomePage() {
                   href={CONTACTS.jefe.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 transition-colors"
+                  className="p-2.5 rounded-full bg-white/5 border border-white/10 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors"
                   aria-label="WhatsApp Central"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -1490,27 +1493,27 @@ export default function HomePage() {
               </h5>
               <ul className="space-y-2.5 text-sm text-slate-400">
                 <li>
-                  <Link href="#modalidades" className="hover:text-emerald-400 transition-colors">
+                  <Link href="#modalidades" className="hover:text-amber-400 transition-colors">
                     Beach Tennis & Vôlei
                   </Link>
                 </li>
                 <li>
-                  <Link href="#locacao" className="hover:text-emerald-400 transition-colors">
+                  <Link href="#locacao" className="hover:text-amber-400 transition-colors">
                     Locações & Mensalistas
                   </Link>
                 </li>
                 <li>
-                  <Link href="#professores" className="hover:text-emerald-400 transition-colors">
+                  <Link href="#professores" className="hover:text-amber-400 transition-colors">
                     Profª. Viviane & Anderson
                   </Link>
                 </li>
                 <li>
-                  <Link href="#estrutura" className="hover:text-emerald-400 transition-colors">
+                  <Link href="#estrutura" className="hover:text-amber-400 transition-colors">
                     Diferenciais da Quadra
                   </Link>
                 </li>
                 <li>
-                  <Link href="#localizacao" className="hover:text-emerald-400 transition-colors">
+                  <Link href="#localizacao" className="hover:text-amber-400 transition-colors">
                     Como Chegar (Maps)
                   </Link>
                 </li>
@@ -1552,7 +1555,7 @@ export default function HomePage() {
       </footer>
 
       {/* ============================================================== */}
-      {/* D. FLOATING WHATSAPP CTA COM MULTI-DESTINO & PULSE DE ATENÇÃO  */}
+      {/* D. FLOATING WHATSAPP CTA COM MULTI-DESTINO & PULSE SOLAR       */}
       {/* ============================================================== */}
       <aside
         aria-label="Atendimento WhatsApp CT Vivi Nunes"
@@ -1562,7 +1565,7 @@ export default function HomePage() {
         {showWaModal && (
           <div className="w-72 p-4 rounded-2xl bg-[#14171A]/95 backdrop-blur-xl border border-white/15 shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
             <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
                 Falar pelo WhatsApp
               </span>
               <button
@@ -1579,7 +1582,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWaModal(false)}
-                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-slate-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
+                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
               >
                 <span>Reservar Quadra (Jefe)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -1589,7 +1592,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWaModal(false)}
-                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-slate-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
+                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
               >
                 <span>Aulas & Iniciação (Viviane)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -1599,7 +1602,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWaModal(false)}
-                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-amber-500 hover:text-slate-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
+                className="w-full text-left p-2.5 rounded-xl bg-white/5 hover:bg-orange-500 hover:text-stone-950 text-white flex items-center justify-between transition-colors text-xs font-semibold"
               >
                 <span>Treinos de Areia (Anderson)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -1608,19 +1611,19 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* Botão Flutuante Principal */}
+        {/* Botão Flutuante Principal em Dourado Solar de Alto Padrão */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowWaModal(!showWaModal)}
-            className="group relative flex items-center justify-center h-14 px-5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-2xl shadow-emerald-500/40 transition-transform active:scale-95 duration-200"
+            className="group relative flex items-center justify-center h-14 px-5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-stone-950 shadow-2xl shadow-amber-500/35 transition-transform active:scale-95 duration-200"
             aria-label="Abrir canais de WhatsApp"
           >
-            {/* Pulsing beacon */}
+            {/* Pulsing beacon solar */}
             <span className="absolute -top-1 -right-1 flex h-4 w-4">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-200" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75" />
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-amber-200" />
             </span>
-            <MessageCircle className="w-6 h-6 mr-2 fill-slate-950 stroke-none" />
+            <MessageCircle className="w-6 h-6 mr-2 fill-stone-950 stroke-none" />
             <span className="font-extrabold text-sm tracking-wide uppercase">
               Reservar Horário
             </span>
