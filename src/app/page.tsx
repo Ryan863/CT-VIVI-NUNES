@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
@@ -53,7 +53,6 @@ function InstagramIcon({ className = "w-5 h-5" }: { className?: string }) {
 export const ASSETS = {
   heroDesktop: "/vivinunes/telainicialdesktop.jpg",
   heroMobile: "/vivinunes/telainicialmobile.jpg",
-  navbarLogo: "/vivinunes/logotransparenteparamenuinicial.jpg",
   officialLogo: "/vivinunes/logo.jpg",
 };
 
@@ -139,7 +138,15 @@ export default function HomePage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [showWaModal, setShowWaModal] = useState(false);
 
-  // GSAP Animations
+  // Garantir refresh do ScrollTrigger após carregamento
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // GSAP Animations seguras (fromTo com clearProps para nunca sumir elementos)
   useGSAP(
     () => {
       // Navbar scroll background animation
@@ -169,67 +176,96 @@ export default function HomePage() {
         });
       }
 
-      // Hero content staggered entrance
-      gsap.from(".hero-reveal", {
-        y: 35,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        delay: 0.2,
-      });
+      // Hero reveal
+      gsap.fromTo(
+        ".hero-reveal",
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+          delay: 0.1,
+          clearProps: "all",
+        }
+      );
 
       // Bento cards reveal
-      gsap.from(".bento-card", {
-        scrollTrigger: {
-          trigger: "#modalidades",
-          start: "top 78%",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power2.out",
-      });
+      gsap.fromTo(
+        ".bento-card",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#modalidades",
+            start: "top 90%",
+            once: true,
+          },
+        }
+      );
 
-      // Teachers cards reveal
-      gsap.from(".teacher-card", {
-        scrollTrigger: {
-          trigger: "#professores",
-          start: "top 78%",
-        },
-        y: 45,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-      });
+      // Teachers cards reveal seguro
+      gsap.fromTo(
+        ".teacher-card",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#professores",
+            start: "top 90%",
+            once: true,
+          },
+        }
+      );
 
       // Structure pillars reveal
-      gsap.from(".structure-pillar", {
-        scrollTrigger: {
-          trigger: "#estrutura",
-          start: "top 78%",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: "power2.out",
-      });
+      gsap.fromTo(
+        ".structure-pillar",
+        { y: 25, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#estrutura",
+            start: "top 90%",
+            once: true,
+          },
+        }
+      );
 
       // Testimonial cards reveal
-      gsap.from(".testimonial-card", {
-        scrollTrigger: {
-          trigger: "#avaliacoes",
-          start: "top 78%",
-        },
-        y: 35,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-      });
+      gsap.fromTo(
+        ".testimonial-card",
+        { y: 25, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#avaliacoes",
+            start: "top 90%",
+            once: true,
+          },
+        }
+      );
     },
     { scope: containerRef }
   );
@@ -240,26 +276,31 @@ export default function HomePage() {
       className="relative min-h-screen bg-[#0B0C0E] text-[#F8FAFC] overflow-x-hidden selection:bg-emerald-500 selection:text-black"
     >
       {/* ============================================================== */}
-      {/* A. NAVBAR EDITORIAL (Sticky com transição inteligente e Blur)  */}
+      {/* A. NAVBAR EDITORIAL (Sticky com Blur e Logo Tipográfica)       */}
       {/* ============================================================== */}
       <header
         id="main-navbar"
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent bg-transparent"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          {/* Logo Oficial Tipográfica */}
+          {/* Logo Tipográfica Oficial (Sem caixa branca, refinada) */}
           <Link
             href="#hero"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg p-1"
+            className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-xl py-1 px-2 -ml-2 transition-colors hover:bg-white/5"
           >
-            <div className="relative h-10 sm:h-12 w-36 sm:w-48 transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src={ASSETS.navbarLogo}
-                alt="CT Vivi Nunes - Logo Oficial"
-                fill
-                priority
-                className="object-contain object-left drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
-              />
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-2xl sm:text-3xl tracking-tight text-white font-syne">
+                  CT
+                </span>
+                <span className="font-black text-2xl sm:text-3xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent font-syne drop-shadow-[0_2px_12px_rgba(34,197,94,0.3)]">
+                  VIVI NUNES
+                </span>
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+              </div>
+              <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-slate-400 group-hover:text-emerald-400 transition-colors -mt-0.5">
+                Complexo de Areia • Videira
+              </span>
             </div>
           </Link>
 
@@ -409,43 +450,46 @@ export default function HomePage() {
       </header>
 
       {/* ============================================================== */}
-      {/* B. 1ª DOBRA: HERO SECTION (min-h-[100dvh] com tela cheia)      */}
+      {/* B. 1ª DOBRA: HERO SECTION (IMAGENS 100% VISÍVEIS EM TELA CHEIA)*/}
       {/* ============================================================== */}
       <section
         id="hero"
-        className="relative min-h-[100dvh] flex flex-col justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-28 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black"
       >
-        {/* Imagem de Fundo Condicional Responsiva */}
-        <div className="absolute inset-0 -z-20 min-h-[100dvh] w-full overflow-hidden">
-          {/* Desktop 16:9 */}
+        {/* Layer 0: Imagem Desktop (16:9) em tela cheia garantida */}
+        <div className="hidden md:block absolute inset-0 z-0">
           <Image
             src={ASSETS.heroDesktop}
-            alt="Quadras de areia dourada do CT Vivi Nunes com iluminação do pôr do sol"
+            alt="Quadra de areia do CT Vivi Nunes com iluminação natural em Videira"
             fill
             priority
-            quality={90}
+            quality={95}
             sizes="100vw"
-            className="hidden md:block object-cover object-center scale-105"
+            className="object-cover object-center"
           />
-          {/* Mobile 9:16 */}
+        </div>
+
+        {/* Layer 0: Imagem Mobile (9:16) em tela cheia garantida */}
+        <div className="block md:hidden absolute inset-0 z-0">
           <Image
             src={ASSETS.heroMobile}
             alt="Quadra de areia com bola de vôlei do CT Vivi Nunes em Videira"
             fill
             priority
-            quality={90}
+            quality={95}
             sizes="100vw"
-            className="block md:hidden object-cover object-center"
+            className="object-cover object-center"
           />
         </div>
 
-        {/* Overlay em Degradê Gradual de Alta Legibilidade */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/75 to-[#0B0C0E]/40" />
+        {/* Layer 1: Overlay Suave para proteger a leitura sem apagar a foto dourada da quadra */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/50 to-[#0B0C0E]/25 pointer-events-none" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-transparent to-[#0B0C0E] pointer-events-none" />
 
-        {/* Conteúdo Central Hero */}
-        <div className="max-w-5xl mx-auto my-auto w-full text-center flex flex-col items-center pt-8">
+        {/* Layer 2: Conteúdo Central Hero */}
+        <div className="relative z-10 max-w-5xl mx-auto my-auto w-full text-center flex flex-col items-center pt-8">
           {/* Eyebrow Badge Editorial */}
-          <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-md mb-6">
+          <div className="hero-reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 backdrop-blur-md mb-6 shadow-lg shadow-black/40">
             <span className="flex h-2 w-2 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -456,7 +500,7 @@ export default function HomePage() {
           </div>
 
           {/* H1 Imponente */}
-          <h1 className="hero-reveal font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tight text-white max-w-4xl leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)]">
+          <h1 className="hero-reveal font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-7xl tracking-tight text-white max-w-4xl leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
             Viva a energia da praia no{" "}
             <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
               coração de Videira
@@ -465,7 +509,7 @@ export default function HomePage() {
           </h1>
 
           {/* Subtítulo Conversivo */}
-          <p className="hero-reveal mt-6 text-base sm:text-xl text-slate-200 max-w-2xl font-medium leading-relaxed drop-shadow-md">
+          <p className="hero-reveal mt-6 text-base sm:text-xl text-slate-100 max-w-2xl font-medium leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             Quadras de areia higienizada para{" "}
             <strong className="text-white font-bold">Beach Tennis</strong>,{" "}
             <strong className="text-white font-bold">Vôlei</strong> e{" "}
@@ -481,7 +525,7 @@ export default function HomePage() {
               href={CONTACTS.jefe.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-2xl shadow-emerald-500/35 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-2xl shadow-emerald-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               <MessageCircle className="w-5 h-5 fill-slate-950 stroke-none" />
               <span>Alugar Quadra com Jefe</span>
@@ -491,7 +535,7 @@ export default function HomePage() {
             {/* Botão Secundário: Aulas & Metodologia */}
             <Link
               href="#professores"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-slate-200 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/15 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-base font-bold text-slate-100 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/25 transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/50"
             >
               <Flame className="w-5 h-5 text-amber-400" />
               <span>Aulas e Treinamento Funcional</span>
@@ -499,29 +543,29 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Barra Inferior de Autoridade / Trust Badges */}
-        <div className="hero-reveal max-w-5xl mx-auto w-full mt-10 pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+        {/* Layer 2: Barra Inferior de Autoridade / Trust Badges */}
+        <div className="hero-reveal relative z-10 max-w-5xl mx-auto w-full mt-10 pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
           <div className="flex items-center justify-center gap-2.5 py-1">
             <div className="flex text-amber-400">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
               ))}
             </div>
-            <span className="text-xs sm:text-sm font-semibold text-slate-200">
+            <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
               5.0 no Google (Areia Limpa e Fofa)
             </span>
           </div>
 
           <div className="flex items-center justify-center gap-2 py-1">
             <Trophy className="w-4 h-4 text-emerald-400" />
-            <span className="text-xs sm:text-sm font-semibold text-slate-200">
+            <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
               Referência Esportiva Desde 2023
             </span>
           </div>
 
           <div className="flex items-center justify-center gap-2 py-1">
             <Zap className="w-4 h-4 text-amber-400" />
-            <span className="text-xs sm:text-sm font-semibold text-slate-200">
+            <span className="text-xs sm:text-sm font-semibold text-slate-100 drop-shadow-md">
               Iluminação em LED para Jogos Noturnos
             </span>
           </div>
@@ -747,7 +791,7 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================== */}
-      {/* C.2 EQUIPE TÉCNICA & METODOLOGIA (Split Editorial Exclusivo)    */}
+      {/* C.2 EQUIPE TÉCNICA & METODOLOGIA (Split Editorial Robusto)     */}
       {/* ============================================================== */}
       <section
         id="professores"
@@ -770,7 +814,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1: Profª. Viviane Nunes */}
-          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/40 transition-all duration-300">
+          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-emerald-500/40 transition-all duration-300 shadow-xl">
             <div className="absolute top-0 right-0 w-44 h-44 bg-emerald-500/10 rounded-full blur-2xl -z-10 group-hover:bg-emerald-500/20 transition-all" />
 
             <div>
@@ -832,7 +876,7 @@ export default function HomePage() {
           </div>
 
           {/* Card 2: Prof. Anderson Tansini */}
-          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/40 transition-all duration-300">
+          <div className="teacher-card rounded-3xl bg-[#14171A] border border-white/10 p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/40 transition-all duration-300 shadow-xl">
             <div className="absolute top-0 right-0 w-44 h-44 bg-amber-500/10 rounded-full blur-2xl -z-10 group-hover:bg-amber-500/20 transition-all" />
 
             <div>
@@ -1401,15 +1445,16 @@ export default function HomePage() {
 
           {/* Grid Principal do Rodapé */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/5">
-            {/* Coluna 1: Logo e Resumo */}
+            {/* Coluna 1: Logo Tipográfica e Resumo */}
             <div className="md:col-span-5 flex flex-col items-start">
-              <div className="relative h-12 w-48 mb-4">
-                <Image
-                  src={ASSETS.navbarLogo}
-                  alt="CT Vivi Nunes"
-                  fill
-                  className="object-contain object-left"
-                />
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-extrabold text-2xl tracking-tight text-white font-syne">
+                  CT
+                </span>
+                <span className="font-black text-2xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent font-syne">
+                  VIVI NUNES
+                </span>
+                <span className="h-2 w-2 rounded-full bg-emerald-400" />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
                 Complexo Esportivo de Areia com foco em Beach Tennis, Vôlei de
