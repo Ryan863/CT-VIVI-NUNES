@@ -423,16 +423,21 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Layer 1: Overlays Direcionais (Leve e cristalino para destacar a areia e a bola) */}
-        {/* Desktop: Gradiente lateral e vinheta escura suave atrás do texto */}
-        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-[#0F1115]/90 via-[#0F1115]/40 to-transparent pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115]/80 via-transparent to-transparent pointer-events-none" />
-
-        {/* Mobile: Gradiente com área central sombreada exatamente atrás do texto contra o pôr do sol, clareando na base onde está a bola */}
+        {/* Layer 1: Overlays Direcionais (Leitura Perfeita tanto no PC quanto no Mobile) */}
+        {/* Desktop: Gradiente escuro lateral linear-gradient(90deg, rgba(10, 12, 16, 0.92) 0%, rgba(10, 12, 16, 0.78) 55%, rgba(10, 12, 16, 0.35) 100%) */}
         <div
           style={{
             background:
-              "radial-gradient(circle at 50% 38%, rgba(10, 12, 16, 0.82) 0%, rgba(10, 12, 16, 0.45) 65%, transparent 100%), linear-gradient(180deg, rgba(15, 17, 21, 0.7) 0%, transparent 45%, rgba(15, 17, 21, 0.55) 100%)",
+              "linear-gradient(90deg, rgba(10, 12, 16, 0.92) 0%, rgba(10, 12, 16, 0.78) 55%, rgba(10, 12, 16, 0.35) 100%)",
+          }}
+          className="hidden md:block absolute inset-0 z-[1] pointer-events-none"
+        />
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115] via-transparent to-transparent pointer-events-none" />
+
+        {/* Mobile: rgba(10, 12, 16, 0.80) */}
+        <div
+          style={{
+            background: "rgba(10, 12, 16, 0.80)",
           }}
           className="block md:hidden absolute inset-0 z-[1] pointer-events-none"
         />
@@ -455,35 +460,38 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* H1 com clamp no mobile e contraste dourado brilhante #FDE047 com text-shadow escuro */}
+            {/* H1 com mesma fonte sans-serif moderna e forte (Plus Jakarta Sans, font-weight: 800, font-style: normal) e coração de Videira em #FF8A00 */}
             <h1
               style={{
                 textShadow:
                   "0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9)",
               }}
-              className="hero-reveal font-heading font-extrabold text-[clamp(2rem,7vw,2.5rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]"
+              className="hero-reveal font-heading font-extrabold text-[clamp(2.1rem,7.5vw,2.75rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]"
             >
               Viva a energia da praia no{" "}
               <span
                 style={{
-                  color: "#FDE047",
+                  color: "#FF8A00",
+                  fontWeight: 800,
+                  fontStyle: "normal",
                   textShadow:
                     "0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9)",
                 }}
-                className="font-playfair font-semibold italic inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+                className="inline-block"
               >
                 coração de Videira
               </span>
               .
             </h1>
 
-            {/* Subtítulo mais curto, leve com Vivi Nunes em branco negrito sublinhado fino */}
+            {/* Subtítulo em #E4E4E7 com Vivi Nunes em branco puro negrito */}
             <p
               style={{
+                color: "#E4E4E7",
                 textShadow:
-                  "0 3px 20px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9)",
+                  "0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.8)",
               }}
-              className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-100 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl"
+              className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg font-light leading-snug sm:leading-relaxed max-w-xl"
             >
               3 quadras de areia (2 cobertas e 1 aberta) para Vôlei, Beach Tennis e Futevôlei. Treine com a ex-atleta profissional{" "}
               <strong
@@ -491,7 +499,7 @@ export default function HomePage() {
                   color: "#FFFFFF",
                   fontWeight: 700,
                 }}
-                className="underline decoration-amber-400 underline-offset-4 decoration-[1.5px]"
+                className="underline decoration-[#FF8A00] underline-offset-4 decoration-[1.5px]"
               >
                 Vivi Nunes
               </strong>
@@ -1341,53 +1349,66 @@ export default function HomePage() {
                     <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
                   </a>
                 </div>
-
-                {/* Card Exclusivo do Instagram Oficial com Gradiente e Identidade Visual Própria */}
-                <div className="mt-5 p-4 rounded-xl bg-gradient-to-br from-[#1C202B] via-[#181923] to-[#211628] border border-[#DD2A7B]/30 hover:border-[#DD2A7B]/60 transition-all duration-300 shadow-lg shadow-[#DD2A7B]/5">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div
-                        style={{
-                          background:
-                            "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF)",
-                        }}
-                        className="w-11 h-11 rounded-xl flex items-center justify-center text-white shadow-md shadow-[#DD2A7B]/30 flex-shrink-0"
-                      >
-                        <InstagramIcon className="w-6 h-6 stroke-white" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <h5 className="font-heading font-bold text-white text-sm">
-                            Instagram Oficial
-                          </h5>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[#DD2A7B]/15 text-[#DD2A7B] border border-[#DD2A7B]/30">
-                            Siga os treinos e novidades
-                          </span>
-                        </div>
-                        <span className="text-xs text-zinc-300 font-medium">
-                          {CONTACTS.social.handle}
-                        </span>
-                      </div>
-                    </div>
-
-                    <a
-                      href={CONTACTS.social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        background:
-                          "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF)",
-                      }}
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white uppercase tracking-wider hover:opacity-95 hover:scale-105 active:scale-95 transition-all shadow-md shadow-[#DD2A7B]/25 w-full sm:w-auto"
-                    >
-                      <span>Ver Fotos no Instagram ↗</span>
-                    </a>
-                  </div>
-                </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/[0.06] text-center text-xs text-zinc-400">
                 Atendimento rápido todos os dias no WhatsApp.
+              </div>
+            </div>
+          </div>
+
+          {/* ============================================================== */}
+          {/* C.6.5 BANNER EXCLUSIVO E INDEPENDENTE DO INSTAGRAM            */}
+          {/* ============================================================== */}
+          <div className="mt-10 sm:mt-12 p-6 sm:p-8 md:p-10 rounded-3xl bg-[#161922] border border-white/[0.08] hover:border-[#DD2A7B]/40 transition-all duration-300 relative overflow-hidden shadow-2xl">
+            {/* Brilho sutil de fundo com gradiente do Instagram */}
+            <div className="absolute -right-16 -bottom-16 w-80 h-80 bg-gradient-to-tr from-[#F58529]/15 via-[#DD2A7B]/15 to-[#8134AF]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -left-16 -top-16 w-64 h-64 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Lado Esquerdo: Ícone grande, selo, título e descrição */}
+              <div className="lg:col-span-8 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6">
+                {/* Ícone grande com gradiente oficial do Instagram */}
+                <div
+                  style={{
+                    background:
+                      "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF)",
+                  }}
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-[#DD2A7B]/30 flex-shrink-0"
+                >
+                  <InstagramIcon className="w-8 h-8 sm:w-10 sm:h-10 stroke-white" />
+                </div>
+
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-widest bg-[#DD2A7B]/15 text-[#DD2A7B] border border-[#DD2A7B]/30 mb-2.5">
+                    COMUNIDADE NA AREIA
+                  </div>
+                  <h3 className="font-heading font-extrabold text-xl sm:text-2xl md:text-3xl text-white tracking-tight">
+                    Acompanhe a rotina das quadras no Instagram
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-xl">
+                    Veja vídeos dos treinos, torneios, bastidores das aulas com a Profª Vivi Nunes e stories diários do complexo em Videira.
+                  </p>
+                </div>
+              </div>
+
+              {/* Lado Direito: Handle em destaque e botão grande e limpo */}
+              <div className="lg:col-span-4 flex flex-col items-center lg:items-end justify-center gap-3 w-full">
+                <span className="text-base sm:text-lg font-bold text-zinc-200 tracking-tight">
+                  {CONTACTS.social.handle}
+                </span>
+                <a
+                  href={CONTACTS.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background:
+                      "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF)",
+                  }}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-heading font-extrabold text-sm uppercase tracking-wider text-white shadow-xl shadow-[#DD2A7B]/30 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-200"
+                >
+                  <span>Seguir @ct_vivinunes no Instagram ↗</span>
+                </a>
               </div>
             </div>
           </div>
