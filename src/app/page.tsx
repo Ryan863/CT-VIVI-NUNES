@@ -395,7 +395,7 @@ export default function HomePage() {
       {/* ============================================================== */}
       <section
         id="hero"
-        className="relative isolate min-h-[100dvh] flex flex-col justify-center pt-24 pb-12 sm:pt-28 sm:pb-16 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
+        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
       >
         {/* Layer 0: Imagem Desktop (16:9) */}
         <div className="hidden md:block absolute inset-0 z-0">
@@ -423,30 +423,19 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Layer 1: Overlays Direcionais (Leitura Perfeita tanto no PC quanto no Mobile) */}
-        {/* Desktop: Gradiente escuro lateral linear-gradient(90deg, rgba(10, 12, 16, 0.92) 0%, rgba(10, 12, 16, 0.78) 55%, rgba(10, 12, 16, 0.35) 100%) */}
-        <div
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(10, 12, 16, 0.92) 0%, rgba(10, 12, 16, 0.78) 55%, rgba(10, 12, 16, 0.35) 100%)",
-          }}
-          className="hidden md:block absolute inset-0 z-[1] pointer-events-none"
-        />
+        {/* Layer 1: Overlays Direcionais (Leve e cristalino para destacar a areia, o pôr do sol e a bola) */}
+        {/* Desktop: Gradiente lateral sutil */}
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-[#0F1115]/85 via-[#0F1115]/35 to-transparent pointer-events-none" />
         <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115] via-transparent to-transparent pointer-events-none" />
 
-        {/* Mobile: rgba(10, 12, 16, 0.80) */}
-        <div
-          style={{
-            background: "rgba(10, 12, 16, 0.80)",
-          }}
-          className="block md:hidden absolute inset-0 z-[1] pointer-events-none"
-        />
+        {/* Mobile: Overlay clareado e suave que não sufoca a imagem */}
+        <div className="block md:hidden absolute inset-0 z-[1] bg-gradient-to-b from-[#0F1115]/65 via-transparent to-[#0F1115]/70 pointer-events-none" />
 
         {/* Layer 2: Conteúdo Hero Alinhado */}
         <div className="relative z-10 max-w-[1200px] mx-auto my-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-2 pb-4 sm:pt-6 sm:pb-6">
           <div className="max-w-2xl lg:max-w-3xl">
             {/* Status Badge com toque de Verde Esmeralda */}
-            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/90 border border-white/[0.08] backdrop-blur-md mb-4 sm:mb-6 shadow-lg shadow-black/50">
+            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/85 border border-white/[0.08] backdrop-blur-md mb-4 sm:mb-6 shadow-lg shadow-black/40">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -460,47 +449,26 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* H1 com mesma fonte sans-serif moderna e forte (Plus Jakarta Sans, font-weight: 800, font-style: normal) e coração de Videira em #FF8A00 */}
-            <h1
-              style={{
-                textShadow:
-                  "0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9)",
-              }}
-              className="hero-reveal font-heading font-extrabold text-[clamp(2.1rem,7.5vw,2.75rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]"
-            >
+            {/* H1 com clamp no mobile e Playfair Display Italic elegante com contraste escuro reforçado para 100% de nitidez sobre o pôr do sol */}
+            <h1 className="hero-reveal font-heading font-extrabold text-[clamp(2.1rem,7.5vw,2.75rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]">
               Viva a energia da praia no{" "}
               <span
                 style={{
-                  color: "#FF8A00",
-                  fontWeight: 800,
-                  fontStyle: "normal",
+                  color: "#FFB800",
                   textShadow:
-                    "0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9)",
+                    "0 4px 18px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 0, 0, 0.9)",
                 }}
-                className="inline-block"
+                className="font-playfair font-semibold italic inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
               >
                 coração de Videira
               </span>
               .
             </h1>
 
-            {/* Subtítulo em #E4E4E7 com Vivi Nunes em branco puro negrito */}
-            <p
-              style={{
-                color: "#E4E4E7",
-                textShadow:
-                  "0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.8)",
-              }}
-              className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg font-light leading-snug sm:leading-relaxed max-w-xl"
-            >
+            {/* Subtítulo mais curto, leve (font-weight: 300, font-size: 0.95rem, max 3 linhas) */}
+            <p className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-200 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl">
               3 quadras de areia (2 cobertas e 1 aberta) para Vôlei, Beach Tennis e Futevôlei. Treine com a ex-atleta profissional{" "}
-              <strong
-                style={{
-                  color: "#FFFFFF",
-                  fontWeight: 700,
-                }}
-                className="underline decoration-[#FF8A00] underline-offset-4 decoration-[1.5px]"
-              >
+              <strong className="text-amber-400 font-semibold underline decoration-amber-400/60 underline-offset-4 decoration-[1.5px]">
                 Vivi Nunes
               </strong>
               .
@@ -526,6 +494,55 @@ export default function HomePage() {
                 <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
                 <span>Aulas com Profª Vivi</span>
               </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Layer 2: Barra Inferior de Autoridade & Trust Badges */}
+        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-4 sm:mt-6 pt-3 sm:pt-5 border-t border-white/[0.08]">
+          {/* Versão Mobile Compacta (1 linha limpa com badges) */}
+          <div className="flex sm:hidden items-center justify-between text-[11px] font-medium text-zinc-300 px-1">
+            <div className="flex items-center gap-1.5">
+              <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
+              <span>5.0 no Google</span>
+            </div>
+            <span className="text-zinc-600">•</span>
+            <div className="flex items-center gap-1.5">
+              <Trophy className="w-3.5 h-3.5 text-amber-400" />
+              <span>3 Quadras</span>
+            </div>
+            <span className="text-zinc-600">•</span>
+            <div className="flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Até 23:30</span>
+            </div>
+          </div>
+
+          {/* Versão Desktop Completa */}
+          <div className="hidden sm:grid grid-cols-3 gap-4 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
+                ))}
+              </div>
+              <span className="text-xs sm:text-sm font-medium text-zinc-300">
+                5.0 no Google (Areia Limpa & Fofa)
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+              <Trophy className="w-4 h-4 text-amber-400" />
+              <span className="text-xs sm:text-sm font-medium text-zinc-300">
+                3 Quadras: 2 Cobertas (Yago & Eloá) + 1 Aberta
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+              <Clock className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs sm:text-sm font-medium text-zinc-300">
+                Todos os Dias até 23:30 (Iluminação LED)
+              </span>
             </div>
           </div>
         </div>

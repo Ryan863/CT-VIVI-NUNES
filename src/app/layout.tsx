@@ -1,26 +1,27 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans, Barlow_Condensed } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
   display: "swap",
-  weight: ["600", "700", "800", "900"],
+  weight: ["600", "700", "800"],
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
-const barlowCondensed = Barlow_Condensed({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-barlow-condensed",
+  variable: "--font-playfair",
   display: "swap",
-  weight: ["700", "800", "900"],
+  style: ["normal", "italic"],
+  weight: ["600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -129,7 +130,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${outfit.variable} ${plusJakartaSans.variable} ${barlowCondensed.variable} scroll-smooth antialiased`}
+      className={`${outfit.variable} ${plusJakartaSans.variable} ${playfairDisplay.variable} scroll-smooth antialiased`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -139,7 +140,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
         <script
