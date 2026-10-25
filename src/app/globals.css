@@ -110,3 +110,42 @@ strong, b {
   border-color: rgba(255, 138, 0, 0.85);
   box-shadow: 0 20px 30px -5px rgba(245, 158, 11, 0.25);
 }
+
+/* 21st.dev Spotlight Card Effect (Cursor-Followed Amber Glow) */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(245, 158, 11, 0.13),
+    transparent 65%
+  );
+  opacity: var(--mouse-opacity, 0);
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 21st.dev Radiant Glow Pulse */
+@keyframes radiant-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+.radiant-glow {
+  animation: radiant-glow 3.5s ease-in-out infinite;
+}
+

@@ -133,7 +133,7 @@ export const FAQ_DATA = [
 
 // Registrar plugin client-side
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 export default function HomePage() {
@@ -143,6 +143,20 @@ export default function HomePage() {
   const [showWaModal, setShowWaModal] = useState(false);
   const [showFloatingBtn, setShowFloatingBtn] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Efeito Spotlight 21st-dev: rastreia o cursor com aceleração por GPU (CSS Custom Properties)
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+    e.currentTarget.style.setProperty("--mouse-opacity", "1");
+  };
+
+  const handleCardMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.currentTarget.style.setProperty("--mouse-opacity", "0");
+  };
 
   // Monitorar scroll para navbar transparente no topo e botão flutuante apenas após scrollY > 600px
   useEffect(() => {
@@ -156,7 +170,7 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Garantir refresh do ScrollTrigger após carregamento
+  // Garantir refresh do ScrollTrigger após carregamento de fontes e assets
   useEffect(() => {
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
@@ -164,42 +178,142 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Animações sutis GSAP com clearProps
+  // Orquestração GSAP de Alta Performance (Respeitando prefers-reduced-motion)
   useGSAP(
     () => {
-      // Hero reveal
-      gsap.fromTo(
-        ".hero-reveal",
-        { y: 25, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: "power2.out",
-          delay: 0.1,
-          clearProps: "all",
-        }
-      );
+      const mm = gsap.matchMedia();
 
-      // Section cards reveal
-      gsap.fromTo(
-        ".card-reveal",
-        { y: 25, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power2.out",
-          clearProps: "all",
-          scrollTrigger: {
-            trigger: "#modalidades",
-            start: "top 88%",
-            once: true,
-          },
-        }
-      );
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // 1. Hero Reveal com Stagger nobre
+        gsap.fromTo(
+          ".hero-reveal",
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            delay: 0.1,
+            clearProps: "all",
+          }
+        );
+
+        // 2. Divisor Hero Leve com Expansão Suave
+        gsap.fromTo(
+          ".hero-divider-reveal",
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            delay: 0.5,
+            clearProps: "opacity",
+          }
+        );
+
+        // 3. Modalidades: Entrada orquestrada dos 4 cards de esportes
+        gsap.fromTo(
+          ".modalidade-card",
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: "power2.out",
+            clearProps: "all",
+            scrollTrigger: {
+              trigger: "#modalidades",
+              start: "top 82%",
+              once: true,
+            },
+          }
+        );
+
+        // 4. Locação & Jefe: Revelação elegante
+        gsap.fromTo(
+          ".jefe-card-reveal",
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: "power2.out",
+            clearProps: "all",
+            scrollTrigger: {
+              trigger: "#locacao",
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+
+        // 5. Professores & Vivi: Revelação editorial
+        gsap.fromTo(
+          ".vivi-card-reveal",
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.75,
+            ease: "power2.out",
+            clearProps: "all",
+            scrollTrigger: {
+              trigger: "#professores",
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+
+        // 6. Estrutura das 3 Quadras: Stagger das quadras
+        gsap.fromTo(
+          ".estrutura-card",
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            stagger: 0.12,
+            ease: "power2.out",
+            clearProps: "all",
+            scrollTrigger: {
+              trigger: "#estrutura",
+              start: "top 82%",
+              once: true,
+            },
+          }
+        );
+
+        // 7. Avaliações Google 5.0: Stagger de prova social
+        gsap.fromTo(
+          ".avaliacao-card",
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            stagger: 0.1,
+            ease: "power2.out",
+            clearProps: "all",
+            scrollTrigger: {
+              trigger: "#avaliacoes",
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      });
+
+      // Acessibilidade: instantâneo para usuários que preferem menos movimento
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(
+          ".hero-reveal, .hero-divider-reveal, .modalidade-card, .jefe-card-reveal, .vivi-card-reveal, .estrutura-card, .avaliacao-card",
+          { opacity: 1, y: 0, scale: 1 }
+        );
+      });
     },
     { scope: containerRef }
   );
@@ -468,19 +582,22 @@ export default function HomePage() {
               .
             </p>
 
-            {/* Ação Dupla: Botão Laranja Principal "Reservar quadra" + Botão Secundário Transparente */}
+            {/* Ação Dupla: Botão Laranja Principal com Radiant Glow 21st-dev + Botão Secundário Transparente */}
             <div className="hero-reveal mt-5 sm:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-3 sm:gap-4 w-full sm:w-auto">
-              {/* Botão Primário Laranja */}
-              <a
-                href={CONTACTS.jefe.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 shadow-xl shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
-              >
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-stone-950 stroke-none" />
-                <span>Reservar quadra</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              {/* Botão Primário Laranja com Radiant Glow 21st-dev */}
+              <div className="relative group/glow w-full sm:w-auto">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-orange-400 to-amber-500 rounded-full blur-[4px] opacity-60 group-hover/glow:opacity-100 radiant-glow transition duration-500" />
+                <a
+                  href={CONTACTS.jefe.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 shadow-xl shadow-orange-500/25 transition-all duration-300 hover:scale-[1.02] active:scale-95"
+                >
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-stone-950 stroke-none" />
+                  <span>Reservar quadra</span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover/glow:translate-x-1" />
+                </a>
+              </div>
 
               {/* Botão Secundário com Fundo Transparente e Contorno Discreto */}
               <Link
@@ -494,15 +611,43 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Barra inferior removida a pedido para manter visual 100% clean no mobile e PC */}
+        {/* Gradiente de Fusão Orgânica da Areia no Rodapé da Hero (Elimina cortes bruscos da foto) */}
+        <div className="absolute bottom-0 left-0 right-0 h-36 sm:h-56 bg-gradient-to-t from-[#0F1115] via-[#0F1115]/80 to-transparent pointer-events-none z-[2]" />
       </section>
+
+      {/* ============================================================== */}
+      {/* DIVISOR EDITORIAL LEVE & PROFISSIONAL (Transição 21st-dev)     */}
+      {/* ============================================================== */}
+      <div className="hero-divider-reveal relative w-full flex items-center justify-center -mt-px z-20 pointer-events-none">
+        {/* Linha ultra fina com feixe de luz âmbar que desvanece suavemente */}
+        <div className="h-px w-full max-w-4xl mx-4 sm:mx-auto bg-gradient-to-r from-transparent via-amber-400/40 via-orange-400/25 to-transparent" />
+        
+        {/* Ponto focal de luminosidade difusa */}
+        <div className="absolute h-2 w-32 bg-amber-400/20 blur-md rounded-full pointer-events-none" />
+        
+        {/* Pílula / Indicador discreto e refinado */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+          <a
+            href="#modalidades"
+            className="group inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#151821]/90 hover:bg-[#151821] border border-white/10 hover:border-amber-400/50 text-[11px] font-medium text-zinc-300 hover:text-amber-300 backdrop-blur-md shadow-xl shadow-black/70 transition-all duration-300 hover:scale-105 active:scale-95"
+            aria-label="Explorar modalidades esportivas"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400" />
+            </span>
+            <span className="tracking-widest uppercase text-[10px] font-bold">Conhecer o Complexo</span>
+            <ChevronDown className="w-3.5 h-3.5 text-amber-400/80 group-hover:translate-y-0.5 transition-transform duration-200" />
+          </a>
+        </div>
+      </div>
 
       {/* ============================================================== */}
       {/* C.1 MODALIDADES (Fundo Intercalado #151821 & Vôlei em Destaque)  */}
       {/* ============================================================== */}
       <section
         id="modalidades"
-        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#151821] border-t border-b border-white/[0.06] relative"
+        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#151821] border-b border-white/[0.06] relative"
       >
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -518,10 +663,14 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Grid de 4 Cards: display flex column com botões 100% alinhados na base */}
+          {/* Grid de 4 Cards com Efeito Spotlight 21st-dev e Stagger GSAP */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {/* Card 1: Beach Tennis */}
-            <div className="card-clean rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="modalidade-card card-clean spotlight-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full"
+            >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider bg-white/5 text-zinc-400 border border-white/5">
@@ -563,7 +712,11 @@ export default function HomePage() {
             </div>
 
             {/* Card 2: Vôlei de Praia (DESTAQUE PRINCIPAL DA PROFª VIVI) */}
-            <div className="card-featured rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full relative overflow-hidden">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="modalidade-card card-featured spotlight-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full relative overflow-hidden"
+            >
               {/* Glow sutil no card em destaque */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/15 rounded-full blur-2xl pointer-events-none" />
 
@@ -608,7 +761,11 @@ export default function HomePage() {
             </div>
 
             {/* Card 3: Futevôlei */}
-            <div className="card-clean rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="modalidade-card card-clean spotlight-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full"
+            >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-white/5 text-zinc-300 border border-white/10">
@@ -650,7 +807,11 @@ export default function HomePage() {
             </div>
 
             {/* Card 4: Funcional na Areia */}
-            <div className="card-clean rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="modalidade-card card-clean spotlight-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full"
+            >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-white/5 text-zinc-300 border border-white/10">
@@ -695,7 +856,9 @@ export default function HomePage() {
           {/* Card Editorial de Locação & Foto Oficial do Jefe */}
           <div
             id="locacao"
-            className="mt-12 rounded-2xl p-6 sm:p-10 card-clean border-amber-500/30 relative overflow-hidden"
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+            className="jefe-card-reveal mt-12 rounded-2xl p-6 sm:p-10 card-clean spotlight-card border-amber-500/30 relative overflow-hidden"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Lado Esquerdo: Placeholder Vertical Sofisticado para Foto Oficial do Jefe */}
@@ -820,7 +983,11 @@ export default function HomePage() {
             {/* Lado Esquerdo: Placeholder Vertical Sofisticado para Foto Oficial */}
             <div className="lg:col-span-5 flex flex-col">
               {/* <!-- TROCAR Pela Foto Real: Foto Oficial da Profª Vivi Nunes (Vertical 3:4 ou 4:5) --> */}
-              <div className="card-clean rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden group border-amber-500/30">
+              <div
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleCardMouseLeave}
+                className="vivi-card-reveal card-clean spotlight-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden group border-amber-500/30"
+              >
                 {/* Glow sutil */}
                 <div className="absolute top-0 right-0 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -875,7 +1042,7 @@ export default function HomePage() {
             </div>
 
             {/* Lado Direito: Bio da Atleta, Metodologia e Destaques das Aulas */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="vivi-card-reveal lg:col-span-7 flex flex-col justify-between space-y-6">
               <div>
                 <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">
                   Carreira & Metodologia
@@ -977,10 +1144,14 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Grid da Galeria das 3 Quadras (Placeholders com Aspect-Ratio Definido) */}
+          {/* Grid da Galeria das 3 Quadras com Efeito Spotlight 21st-dev */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* <!-- TROCAR Pela Foto Real: Quadra 1 Coberta (Yago) --> */}
-            <div className="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="estrutura-card card-clean spotlight-card rounded-2xl p-5 flex flex-col justify-between"
+            >
               <div>
                 <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-inner mb-4">
                   <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-2">
@@ -1011,7 +1182,11 @@ export default function HomePage() {
             </div>
 
             {/* <!-- TROCAR Pela Foto Real: Quadra 2 Coberta (Eloá) --> */}
-            <div className="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="estrutura-card card-clean spotlight-card rounded-2xl p-5 flex flex-col justify-between"
+            >
               <div>
                 <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-inner mb-4">
                   <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-2">
@@ -1042,7 +1217,11 @@ export default function HomePage() {
             </div>
 
             {/* <!-- TROCAR Pela Foto Real: Quadra 3 Descoberta (Ao Ar Livre) --> */}
-            <div className="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="estrutura-card card-clean spotlight-card rounded-2xl p-5 flex flex-col justify-between"
+            >
               <div>
                 <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-inner mb-4">
                   <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-2">
@@ -1142,7 +1321,11 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="card-clean p-6 rounded-2xl flex flex-col justify-between">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="avaliacao-card card-clean spotlight-card p-6 rounded-2xl flex flex-col justify-between"
+            >
               <div>
                 <div className="flex items-center gap-1 text-amber-400 mb-3">
                   {[...Array(5)].map((_, i) => (
@@ -1164,7 +1347,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="card-clean p-6 rounded-2xl flex flex-col justify-between">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="avaliacao-card card-clean spotlight-card p-6 rounded-2xl flex flex-col justify-between"
+            >
               <div>
                 <div className="flex items-center gap-1 text-amber-400 mb-3">
                   {[...Array(5)].map((_, i) => (
@@ -1186,7 +1373,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="card-clean p-6 rounded-2xl flex flex-col justify-between">
+            <div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              className="avaliacao-card card-clean spotlight-card p-6 rounded-2xl flex flex-col justify-between"
+            >
               <div>
                 <div className="flex items-center gap-1 text-amber-400 mb-3">
                   {[...Array(5)].map((_, i) => (
