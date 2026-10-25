@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Syne } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-outfit",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["600", "700", "800"],
 });
 
-const syne = Syne({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-inter",
   display: "swap",
-  weight: ["700", "800"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -122,7 +122,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${plusJakarta.variable} ${syne.variable} scroll-smooth antialiased`}
+      className={`${outfit.variable} ${inter.variable} scroll-smooth antialiased`}
     >
       <head>
         <script
@@ -130,7 +130,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[#0B0C0E] text-[#F8FAFC] font-sans antialiased selection:bg-amber-400 selection:text-stone-950">
+      <body className="min-h-screen bg-[#0F1115] text-[#F4F4F5] font-sans antialiased selection:bg-amber-500 selection:text-stone-950">
         {children}
       </body>
     </html>
