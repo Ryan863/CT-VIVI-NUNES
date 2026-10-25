@@ -449,14 +449,14 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* H1 Idêntico à Imagem 2: Quebra exata de linhas no mobile e Playfair Display Italic elegante */}
+            {/* H1 Idêntico à Imagem 2 com pontinho final amarelo */}
             <h1 className="hero-reveal font-heading font-extrabold text-[clamp(2.1rem,7.5vw,2.75rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]">
               Viva a energia da <br className="sm:hidden" />
               praia no{" "}
               <span className="font-playfair text-amber-400 font-semibold italic inline-block drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">
                 coração de Videira
               </span>
-              .
+              <span className="text-amber-400 font-heading">.</span>
             </h1>
 
             {/* Subtítulo idêntico à Imagem 2: leve (font-weight: 300, font-size: 0.95rem) */}
@@ -468,78 +468,33 @@ export default function HomePage() {
               .
             </p>
 
-            {/* Ação Dupla com Botões Elegantes e Compactos no Mobile */}
-            <div className="hero-reveal mt-4 sm:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2.5 sm:gap-4 w-full sm:w-auto">
+            {/* Ação Dupla: Botão Laranja Principal "Reservar quadra" + Botão Secundário Transparente */}
+            <div className="hero-reveal mt-5 sm:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-3 sm:gap-4 w-full sm:w-auto">
+              {/* Botão Primário Laranja */}
               <a
                 href={CONTACTS.jefe.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-4 rounded-full text-[0.85rem] sm:text-sm font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 shadow-xl shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full text-sm sm:text-base font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 shadow-xl shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-stone-950 stroke-none" />
-                <span>Alugar Quadra com Jefe</span>
+                <span>Reservar quadra</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
+              {/* Botão Secundário com Fundo Transparente e Contorno Discreto */}
               <Link
                 href="#professores"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-4 rounded-full text-[0.85rem] sm:text-sm font-bold text-zinc-200 bg-[#1C202B]/85 hover:bg-[#1C202B] border border-white/[0.08] hover:border-amber-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-7 sm:py-4 rounded-full text-sm sm:text-base font-semibold text-zinc-200 hover:text-white bg-transparent border border-white/20 hover:border-amber-400/50 hover:bg-white/5 transition-all duration-300 hover:scale-105 active:scale-95 backdrop-blur-sm"
               >
-                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
-                <span>Aulas com Profª Vivi</span>
+                <Trophy className="w-4 h-4 text-amber-400" />
+                <span>Aulas com a Profª Vivi</span>
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Layer 2: Barra Inferior de Autoridade & Trust Badges */}
-        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-2 sm:mt-6 pt-2.5 sm:pt-5 pb-1 sm:pb-0 border-t border-white/[0.08]">
-          {/* Versão Mobile Compacta (1 linha limpa com badges) */}
-          <div className="flex sm:hidden items-center justify-between text-[11px] font-medium text-zinc-300 px-1">
-            <div className="flex items-center gap-1.5">
-              <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
-              <span>5.0 no Google</span>
-            </div>
-            <span className="text-zinc-600">•</span>
-            <div className="flex items-center gap-1.5">
-              <Trophy className="w-3.5 h-3.5 text-amber-400" />
-              <span>3 Quadras</span>
-            </div>
-            <span className="text-zinc-600">•</span>
-            <div className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Até 23:30</span>
-            </div>
-          </div>
-
-          {/* Versão Desktop Completa */}
-          <div className="hidden sm:grid grid-cols-3 gap-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
-                ))}
-              </div>
-              <span className="text-xs sm:text-sm font-medium text-zinc-300">
-                5.0 no Google (Areia Limpa & Fofa)
-              </span>
-            </div>
-
-            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-              <Trophy className="w-4 h-4 text-amber-400" />
-              <span className="text-xs sm:text-sm font-medium text-zinc-300">
-                3 Quadras: 2 Cobertas (Yago & Eloá) + 1 Aberta
-              </span>
-            </div>
-
-            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-              <Clock className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs sm:text-sm font-medium text-zinc-300">
-                Todos os Dias até 23:30 (Iluminação LED)
-              </span>
-            </div>
-          </div>
-        </div>
+        {/* Barra inferior removida a pedido para manter visual 100% clean no mobile e PC */}
       </section>
 
       {/* ============================================================== */}
@@ -569,8 +524,8 @@ export default function HomePage() {
             <div className="card-clean rounded-2xl p-6 sm:p-7 flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-white/5 text-zinc-300 border border-white/10">
-                    Mais Popular
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-medium uppercase tracking-wider bg-white/5 text-zinc-400 border border-white/5">
+                    Lazer & Duplas
                   </span>
                   <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
                     <Sun className="w-5 h-5" />
@@ -737,31 +692,104 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Banner de Chamada para Locação Mensalista */}
+          {/* Card Editorial de Locação & Foto Oficial do Jefe */}
           <div
             id="locacao"
-            className="mt-12 rounded-2xl p-8 sm:p-10 card-clean border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-6"
+            className="mt-12 rounded-2xl p-6 sm:p-10 card-clean border-amber-500/30 relative overflow-hidden"
           >
-            <div className="max-w-xl text-center md:text-left">
-              <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">
-                Planos Mensalistas & Horários Fixos
-              </span>
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white mt-1.5">
-                Garanta o horário fixo da sua turma toda semana
-              </h3>
-              <p className="text-[#A1A1AA] text-sm mt-2 leading-relaxed">
-                São 3 quadras oficiais (2 cobertas e 1 descoberta) funcionando todos os dias até as 23:30. Garanta o melhor horário sem filas.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Lado Esquerdo: Placeholder Vertical Sofisticado para Foto Oficial do Jefe */}
+              <div className="lg:col-span-5 flex flex-col">
+                {/* <!-- TROCAR Pela Foto Real: Foto Oficial do Jefe (Locações) (Vertical 3:4 ou 4:5) --> */}
+                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-between p-6 text-center shadow-inner group">
+                  {/* Badge de cabeçalho */}
+                  <div className="w-full flex items-center justify-between z-10">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                      Locações & Quadras
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                      <Calendar className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  {/* Centro do Placeholder */}
+                  <div className="flex flex-col items-center justify-center my-auto py-4 z-10">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-amber-500/20 via-white/5 to-orange-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-xl mb-4">
+                      <Calendar className="w-10 h-10" />
+                    </div>
+                    <h4 className="font-heading text-xl font-bold text-white">
+                      Jefe
+                    </h4>
+                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mt-1">
+                      Responsável pelas Quadras & Mensalistas
+                    </p>
+                    <span className="mt-3 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-zinc-400 font-medium">
+                      Foto oficial em ensaio fotográfico
+                    </span>
+                  </div>
+
+                  {/* Badges na Base do Placeholder */}
+                  <div className="w-full pt-3 border-t border-white/[0.08] flex items-center justify-around text-center text-[10px] uppercase tracking-wider text-zinc-400 z-10">
+                    <div>
+                      <span className="block font-bold text-white text-xs">3 Quadras</span>
+                      <span>2 Cobertas + 1 Aberta</span>
+                    </div>
+                    <div className="h-5 w-px bg-white/10" />
+                    <div>
+                      <span className="block font-bold text-white text-xs">Até 23:30</span>
+                      <span>Todos os Dias</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-3 text-center sm:text-left flex items-center justify-between px-1 text-xs text-zinc-400">
+                  <span>Atendimento Locações:</span>
+                  <strong className="text-amber-400 font-bold">{CONTACTS.jefe.phoneDisplay}</strong>
+                </div>
+              </div>
+
+              {/* Lado Direito: Informações das Locações e Ação */}
+              <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
+                <div>
+                  <span className="text-amber-400 text-xs font-bold uppercase tracking-wider">
+                    Planos Mensalistas & Horários Avulsos
+                  </span>
+                  <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-1.5 leading-snug">
+                    Garanta o horário fixo da sua turma toda semana
+                  </h3>
+                  <p className="text-[#A1A1AA] text-sm sm:text-base mt-3 leading-relaxed">
+                    Alugue quadras para seu grupo de amigos jogar Beach Tennis, Vôlei de Praia ou Futevôlei com estrutura completa: areia tratada e higienizada, 2 quadras totalmente cobertas para não depender do tempo e 1 quadra aberta sob a brisa natural.
+                  </p>
+                </div>
+
+                <div className="space-y-2.5">
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-200">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    <span>Horários fixos para mensalistas ou reservas avulsas por hora</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-200">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    <span>Iluminação em LED de alta potência para jogos noturnos sem sombras</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-200">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    <span>Atendimento rápido e direto com o Jefe via WhatsApp</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+                  <a
+                    href={CONTACTS.jefe.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-extrabold text-xs uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 transition-all hover:scale-105 shadow-xl shadow-orange-500/20"
+                  >
+                    <Calendar className="w-4 h-4" />
+                    <span>Consultar Grade de Horários com Jefe</span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <a
-              href={CONTACTS.jefe.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full md:w-auto flex-shrink-0 inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 transition-all hover:scale-105 shadow-lg shadow-orange-500/20"
-            >
-              <Calendar className="w-4 h-4" />
-              <span>Consultar Grade com Jefe</span>
-            </a>
           </div>
         </div>
       </section>
