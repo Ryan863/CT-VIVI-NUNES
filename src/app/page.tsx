@@ -395,7 +395,7 @@ export default function HomePage() {
       {/* ============================================================== */}
       <section
         id="hero"
-        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
+        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-20 pb-4 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
       >
         {/* Layer 0: Imagem Desktop (16:9) */}
         <div className="hidden md:block absolute inset-0 z-0">
@@ -431,11 +431,11 @@ export default function HomePage() {
         {/* Mobile: Overlay clareado e suave que não sufoca a imagem */}
         <div className="block md:hidden absolute inset-0 z-[1] bg-gradient-to-b from-[#0F1115]/65 via-transparent to-[#0F1115]/70 pointer-events-none" />
 
-        {/* Layer 2: Conteúdo Hero Alinhado */}
-        <div className="relative z-10 max-w-[1200px] mx-auto my-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-2 pb-4 sm:pt-6 sm:pb-6">
+        {/* Layer 2: Conteúdo Hero Alinhado - no mobile posicionado mais para cima */}
+        <div className="relative z-10 max-w-[1200px] mx-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-1 pb-2 sm:pt-6 sm:pb-6 mt-1 mb-auto sm:my-auto">
           <div className="max-w-2xl lg:max-w-3xl">
             {/* Status Badge com toque de Verde Esmeralda */}
-            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/85 border border-white/[0.08] backdrop-blur-md mb-4 sm:mb-6 shadow-lg shadow-black/40">
+            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/85 border border-white/[0.08] backdrop-blur-md mb-3 sm:mb-6 shadow-lg shadow-black/40">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -449,33 +449,27 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* H1 com clamp no mobile e Playfair Display Italic elegante com contraste escuro reforçado para 100% de nitidez sobre o pôr do sol */}
+            {/* H1 Idêntico à Imagem 2: Quebra exata de linhas no mobile e Playfair Display Italic elegante */}
             <h1 className="hero-reveal font-heading font-extrabold text-[clamp(2.1rem,7.5vw,2.75rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]">
-              Viva a energia da praia no{" "}
-              <span
-                style={{
-                  color: "#FFB800",
-                  textShadow:
-                    "0 4px 18px rgba(0, 0, 0, 0.95), 0 2px 6px rgba(0, 0, 0, 0.95), 0 0 16px rgba(0, 0, 0, 0.9)",
-                }}
-                className="font-playfair font-semibold italic inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
-              >
+              Viva a energia da <br className="sm:hidden" />
+              praia no{" "}
+              <span className="font-playfair text-amber-400 font-semibold italic inline-block drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">
                 coração de Videira
               </span>
               .
             </h1>
 
-            {/* Subtítulo mais curto, leve (font-weight: 300, font-size: 0.95rem, max 3 linhas) */}
-            <p className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-200 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl">
+            {/* Subtítulo idêntico à Imagem 2: leve (font-weight: 300, font-size: 0.95rem) */}
+            <p className="hero-reveal mt-2.5 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-200 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl">
               3 quadras de areia (2 cobertas e 1 aberta) para Vôlei, Beach Tennis e Futevôlei. Treine com a ex-atleta profissional{" "}
-              <strong className="text-amber-400 font-semibold underline decoration-amber-400/60 underline-offset-4 decoration-[1.5px]">
+              <strong className="text-amber-400 font-medium">
                 Vivi Nunes
               </strong>
               .
             </p>
 
-            {/* Ação Dupla com Botões Elegantes e Compactos no Mobile (padding: 12px 20px, font-size: 0.85rem) */}
-            <div className="hero-reveal mt-5 sm:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2.5 sm:gap-4 w-full sm:w-auto">
+            {/* Ação Dupla com Botões Elegantes e Compactos no Mobile */}
+            <div className="hero-reveal mt-4 sm:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2.5 sm:gap-4 w-full sm:w-auto">
               <a
                 href={CONTACTS.jefe.whatsappUrl}
                 target="_blank"
@@ -499,7 +493,7 @@ export default function HomePage() {
         </div>
 
         {/* Layer 2: Barra Inferior de Autoridade & Trust Badges */}
-        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-4 sm:mt-6 pt-3 sm:pt-5 border-t border-white/[0.08]">
+        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-2 sm:mt-6 pt-2.5 sm:pt-5 pb-1 sm:pb-0 border-t border-white/[0.08]">
           {/* Versão Mobile Compacta (1 linha limpa com badges) */}
           <div className="flex sm:hidden items-center justify-between text-[11px] font-medium text-zinc-300 px-1">
             <div className="flex items-center gap-1.5">

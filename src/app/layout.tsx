@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, Oswald } from "next/font/google";
 import "./globals.css";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  display: "swap",
-  weight: ["600", "700", "800"],
-});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   display: "swap",
-  style: ["normal", "italic"],
+  style: ["italic"],
+  weight: ["600"],
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  variable: "--font-oswald",
+  display: "swap",
   weight: ["600", "700"],
 });
 
@@ -130,7 +130,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${outfit.variable} ${plusJakartaSans.variable} ${playfairDisplay.variable} scroll-smooth antialiased`}
+      className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${oswald.variable} scroll-smooth antialiased`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -140,7 +140,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
         <script
