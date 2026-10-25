@@ -47,6 +47,15 @@ function InstagramIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+function WhatsAppIcon({ className = "w-5 h-5 text-emerald-400" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.541 1.961.82 2.796.82 3.183 0 5.769-2.587 5.769-5.767.001-3.181-2.585-5.766-5.769-5.766zm3.388 8.243c-.144.405-.837.774-1.17.822-.312.043-.683.07-1.074-.055-.391-.125-.863-.298-1.503-.578-1.583-.691-2.608-2.274-2.687-2.38-.079-.105-.641-.853-.641-1.628 0-.775.405-1.157.549-1.315.144-.158.314-.198.419-.198.105 0 .21 0 .301.006.097.005.228-.037.355.269.131.316.446 1.088.485 1.167.039.079.065.171.013.275-.052.105-.078.17-.157.262-.079.092-.165.206-.236.276-.079.079-.161.165-.069.323.092.158.409.675.877 1.092.603.537 1.11.704 1.268.783.158.079.25.066.342-.039.092-.105.394-.459.499-.616.105-.157.21-.131.355-.079.144.053.918.433 1.075.512.158.079.263.118.302.184.039.066.039.38-.105.785z"/>
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.306A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.65 0-3.18-.46-4.49-1.26l-.32-.2-2.96.78.79-2.89-.21-.33A8.17 8.17 0 0 1 3.8 12c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.52-3.68 8.2-8.2 8.2z"/>
+    </svg>
+  );
+}
+
 // ==========================================
 // 1. CONSTANTES GLOBAIS DE MANUTENÇÃO RÁPIDA
 // ==========================================
@@ -386,7 +395,7 @@ export default function HomePage() {
       {/* ============================================================== */}
       <section
         id="hero"
-        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
+        className="relative isolate min-h-[100dvh] flex flex-col justify-center pt-24 pb-12 sm:pt-28 sm:pb-16 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
       >
         {/* Layer 0: Imagem Desktop (16:9) */}
         <div className="hidden md:block absolute inset-0 z-0">
@@ -415,18 +424,24 @@ export default function HomePage() {
         </div>
 
         {/* Layer 1: Overlays Direcionais (Leve e cristalino para destacar a areia e a bola) */}
-        {/* Desktop: Gradiente lateral sutil */}
-        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-[#0F1115]/85 via-[#0F1115]/35 to-transparent pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115] via-transparent to-transparent pointer-events-none" />
+        {/* Desktop: Gradiente lateral e vinheta escura suave atrás do texto */}
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-[#0F1115]/90 via-[#0F1115]/40 to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115]/80 via-transparent to-transparent pointer-events-none" />
 
-        {/* Mobile: Overlay clareado e suave que não sufoca a imagem */}
-        <div className="block md:hidden absolute inset-0 z-[1] bg-gradient-to-b from-[#0F1115]/65 via-transparent to-[#0F1115]/70 pointer-events-none" />
+        {/* Mobile: Gradiente com área central sombreada exatamente atrás do texto contra o pôr do sol, clareando na base onde está a bola */}
+        <div
+          style={{
+            background:
+              "radial-gradient(circle at 50% 38%, rgba(10, 12, 16, 0.82) 0%, rgba(10, 12, 16, 0.45) 65%, transparent 100%), linear-gradient(180deg, rgba(15, 17, 21, 0.7) 0%, transparent 45%, rgba(15, 17, 21, 0.55) 100%)",
+          }}
+          className="block md:hidden absolute inset-0 z-[1] pointer-events-none"
+        />
 
         {/* Layer 2: Conteúdo Hero Alinhado */}
         <div className="relative z-10 max-w-[1200px] mx-auto my-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-2 pb-4 sm:pt-6 sm:pb-6">
           <div className="max-w-2xl lg:max-w-3xl">
             {/* Status Badge com toque de Verde Esmeralda */}
-            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/85 border border-white/[0.08] backdrop-blur-md mb-4 sm:mb-6 shadow-lg shadow-black/40">
+            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/90 border border-white/[0.08] backdrop-blur-md mb-4 sm:mb-6 shadow-lg shadow-black/50">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -440,19 +455,47 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* H1 com clamp no mobile e contraste refinado em Playfair Display */}
-            <h1 className="hero-reveal font-heading font-extrabold text-[clamp(2rem,7vw,2.5rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]">
+            {/* H1 com clamp no mobile e contraste dourado brilhante #FDE047 com text-shadow escuro */}
+            <h1
+              style={{
+                textShadow:
+                  "0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9)",
+              }}
+              className="hero-reveal font-heading font-extrabold text-[clamp(2rem,7vw,2.5rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]"
+            >
               Viva a energia da praia no{" "}
-              <span className="font-playfair text-amber-400 font-semibold italic inline-block drop-shadow-[0_2px_12px_rgba(245,158,11,0.25)]">
+              <span
+                style={{
+                  color: "#FDE047",
+                  textShadow:
+                    "0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9)",
+                }}
+                className="font-playfair font-semibold italic inline-block drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+              >
                 coração de Videira
               </span>
               .
             </h1>
 
-            {/* Subtítulo mais curto, leve (font-weight: 300, font-size: 0.95rem, max 3 linhas) */}
-            <p className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-200 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl">
+            {/* Subtítulo mais curto, leve com Vivi Nunes em branco negrito sublinhado fino */}
+            <p
+              style={{
+                textShadow:
+                  "0 3px 20px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9)",
+              }}
+              className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-100 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl"
+            >
               3 quadras de areia (2 cobertas e 1 aberta) para Vôlei, Beach Tennis e Futevôlei. Treine com a ex-atleta profissional{" "}
-              <strong className="text-amber-400 font-medium">Vivi Nunes</strong>.
+              <strong
+                style={{
+                  color: "#FFFFFF",
+                  fontWeight: 700,
+                }}
+                className="underline decoration-amber-400 underline-offset-4 decoration-[1.5px]"
+              >
+                Vivi Nunes
+              </strong>
+              .
             </p>
 
             {/* Ação Dupla com Botões Elegantes e Compactos no Mobile (padding: 12px 20px, font-size: 0.85rem) */}
@@ -475,55 +518,6 @@ export default function HomePage() {
                 <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
                 <span>Aulas com Profª Vivi</span>
               </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Layer 2: Barra Inferior de Autoridade & Trust Badges */}
-        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-4 sm:mt-6 pt-3 sm:pt-5 border-t border-white/[0.08]">
-          {/* Versão Mobile Compacta (1 linha limpa com badges) */}
-          <div className="flex sm:hidden items-center justify-between text-[11px] font-medium text-zinc-300 px-1">
-            <div className="flex items-center gap-1.5">
-              <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
-              <span>5.0 no Google</span>
-            </div>
-            <span className="text-zinc-600">•</span>
-            <div className="flex items-center gap-1.5">
-              <Trophy className="w-3.5 h-3.5 text-amber-400" />
-              <span>3 Quadras</span>
-            </div>
-            <span className="text-zinc-600">•</span>
-            <div className="flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Até 23:30</span>
-            </div>
-          </div>
-
-          {/* Versão Desktop Completa */}
-          <div className="hidden sm:grid grid-cols-3 gap-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-              <div className="flex text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
-                ))}
-              </div>
-              <span className="text-xs sm:text-sm font-medium text-zinc-300">
-                5.0 no Google (Areia Limpa & Fofa)
-              </span>
-            </div>
-
-            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-              <Trophy className="w-4 h-4 text-amber-400" />
-              <span className="text-xs sm:text-sm font-medium text-zinc-300">
-                3 Quadras: 2 Cobertas (Yago & Eloá) + 1 Aberta
-              </span>
-            </div>
-
-            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-              <Clock className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs sm:text-sm font-medium text-zinc-300">
-                Todos os Dias até 23:30 (Iluminação LED)
-              </span>
             </div>
           </div>
         </div>
@@ -1286,31 +1280,37 @@ export default function HomePage() {
                   Fale Direto com os Responsáveis
                 </h3>
                 <p className="text-xs text-[#A1A1AA] mt-1 leading-relaxed">
-                  Clique para abrir a conversa no WhatsApp com a mensagem pronta:
+                  Clique para abrir a conversa no WhatsApp oficial com a mensagem pronta:
                 </p>
 
-                <div className="mt-6 space-y-3">
+                {/* Bloco Exclusivo de WhatsApp com Ícones Verdes #10B981 */}
+                <div className="mt-5 space-y-3">
                   {/* Card Jefe */}
                   <a
                     href={CONTACTS.jefe.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group p-4 rounded-xl bg-[#151821] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/30 flex items-center justify-between transition-all"
+                    className="group p-4 rounded-xl bg-[#151821] hover:bg-emerald-500/10 border border-white/[0.08] hover:border-emerald-500/40 flex items-center justify-between transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-                        <Calendar className="w-5 h-5" />
+                      <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-[#10B981] border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <WhatsAppIcon className="w-5 h-5 text-[#10B981]" />
                       </div>
                       <div>
-                        <h5 className="font-heading font-bold text-white text-sm">
-                          Jefe (Locação de Quadras)
-                        </h5>
-                        <span className="text-xs text-[#A1A1AA]">
+                        <div className="flex items-center gap-2">
+                          <h5 className="font-heading font-bold text-white text-sm">
+                            Jefe (Locação de Quadras)
+                          </h5>
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
+                            WhatsApp
+                          </span>
+                        </div>
+                        <span className="text-xs text-zinc-300 font-medium">
                           {CONTACTS.jefe.phoneDisplay}
                         </span>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
                   </a>
 
                   {/* Card Profª Vivi Nunes */}
@@ -1318,46 +1318,71 @@ export default function HomePage() {
                     href={CONTACTS.viviane.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group p-4 rounded-xl bg-[#151821] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/30 flex items-center justify-between transition-all"
+                    className="group p-4 rounded-xl bg-[#151821] hover:bg-emerald-500/10 border border-white/[0.08] hover:border-emerald-500/40 flex items-center justify-between transition-all duration-200"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-                        <Award className="w-5 h-5" />
+                      <div className="w-11 h-11 rounded-xl bg-emerald-500/15 text-[#10B981] border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <WhatsAppIcon className="w-5 h-5 text-[#10B981]" />
                       </div>
                       <div>
-                        <h5 className="font-heading font-bold text-white text-sm">
-                          Profª. Vivi Nunes (Aulas de Vôlei)
-                        </h5>
-                        <span className="text-xs text-[#A1A1AA]">
+                        <div className="flex items-center gap-2">
+                          <h5 className="font-heading font-bold text-white text-sm">
+                            Profª. Vivi Nunes (Aulas de Vôlei)
+                          </h5>
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
+                            WhatsApp
+                          </span>
+                        </div>
+                        <span className="text-xs text-zinc-300 font-medium">
                           {CONTACTS.viviane.phoneDisplay}
                         </span>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
                   </a>
+                </div>
 
-                  {/* Instagram */}
-                  <a
-                    href={CONTACTS.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-4 rounded-xl bg-[#151821] hover:bg-white/5 border border-white/[0.08] flex items-center justify-between transition-all"
-                  >
+                {/* Card Exclusivo do Instagram Oficial com Gradiente e Identidade Visual Própria */}
+                <div className="mt-5 p-4 rounded-xl bg-gradient-to-br from-[#1C202B] via-[#181923] to-[#211628] border border-[#DD2A7B]/30 hover:border-[#DD2A7B]/60 transition-all duration-300 shadow-lg shadow-[#DD2A7B]/5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 text-amber-400 flex items-center justify-center">
-                        <InstagramIcon className="w-5 h-5" />
+                      <div
+                        style={{
+                          background:
+                            "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF)",
+                        }}
+                        className="w-11 h-11 rounded-xl flex items-center justify-center text-white shadow-md shadow-[#DD2A7B]/30 flex-shrink-0"
+                      >
+                        <InstagramIcon className="w-6 h-6 stroke-white" />
                       </div>
                       <div>
-                        <h5 className="font-heading font-bold text-white text-sm">
-                          Instagram Oficial
-                        </h5>
-                        <span className="text-xs text-[#A1A1AA]">
+                        <div className="flex items-center gap-2">
+                          <h5 className="font-heading font-bold text-white text-sm">
+                            Instagram Oficial
+                          </h5>
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[#DD2A7B]/15 text-[#DD2A7B] border border-[#DD2A7B]/30">
+                            Siga os treinos e novidades
+                          </span>
+                        </div>
+                        <span className="text-xs text-zinc-300 font-medium">
                           {CONTACTS.social.handle}
                         </span>
                       </div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </a>
+
+                    <a
+                      href={CONTACTS.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        background:
+                          "linear-gradient(45deg, #F58529, #DD2A7B, #8134AF)",
+                      }}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white uppercase tracking-wider hover:opacity-95 hover:scale-105 active:scale-95 transition-all shadow-md shadow-[#DD2A7B]/25 w-full sm:w-auto"
+                    >
+                      <span>Ver Fotos no Instagram ↗</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
