@@ -849,53 +849,56 @@ export default function HomePage() {
             className="jefe-card-reveal mt-12 rounded-2xl p-6 sm:p-10 card-clean spotlight-card border-amber-500/30 relative overflow-hidden"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Lado Esquerdo: Placeholder Vertical Sofisticado para Foto Oficial do Jefe */}
+              {/* Lado Esquerdo: Foto Oficial do Jefe (Locações & Quadras) */}
               <div className="lg:col-span-5 flex flex-col">
-                {/* <!-- TROCAR Pela Foto Real: Foto Oficial do Jefe (Locações) (Vertical 3:4 ou 4:5) --> */}
-                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-between p-6 text-center shadow-inner group">
-                  {/* Badge de cabeçalho */}
-                  <div className="w-full flex items-center justify-between z-10">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30">
-                      Locações & Quadras
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                      <Calendar className="w-4 h-4" />
+                <div className="card-clean spotlight-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-full border-amber-500/30">
+                  {/* Foto Oficial do Jefe */}
+                  <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] shadow-xl group">
+                    <Image
+                      src="/vivinunes/JEFE.jpeg"
+                      alt="Jefe - Responsável pelas Quadras e Locações no CT Vivi Nunes"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 420px"
+                      className="object-cover object-[center_28%] transition-transform duration-700 group-hover:scale-105"
+                      priority
+                    />
+                    {/* Badge de cabeçalho */}
+                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase bg-stone-950/75 backdrop-blur-md text-amber-400 border border-amber-500/30 shadow-lg">
+                        Locações & Quadras
+                      </span>
+                      <div className="w-8 h-8 rounded-full bg-stone-950/75 backdrop-blur-md border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-lg">
+                        <Calendar className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Centro do Placeholder */}
-                  <div className="flex flex-col items-center justify-center my-auto py-4 z-10">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-amber-500/20 via-white/5 to-orange-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-xl mb-4">
-                      <Calendar className="w-10 h-10" />
-                    </div>
-                    <h4 className="font-heading text-xl font-bold text-white">
+                  {/* Informações Oficiais do Jefe */}
+                  <div className="pt-4 pb-1 text-center">
+                    <h4 className="font-heading text-xl sm:text-2xl font-black text-white">
                       Jefe
                     </h4>
-                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mt-1">
+                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mt-0.5">
                       Responsável pelas Quadras & Mensalistas
                     </p>
-                    <span className="mt-3 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-zinc-400 font-medium">
-                      Foto oficial em ensaio fotográfico
-                    </span>
-                  </div>
 
-                  {/* Badges na Base do Placeholder */}
-                  <div className="w-full pt-3 border-t border-white/[0.08] flex items-center justify-around text-center text-[10px] uppercase tracking-wider text-zinc-400 z-10">
-                    <div>
-                      <span className="block font-bold text-white text-xs">3 Quadras</span>
-                      <span>2 Cobertas + 1 Aberta</span>
-                    </div>
-                    <div className="h-5 w-px bg-white/10" />
-                    <div>
-                      <span className="block font-bold text-white text-xs">Até 23:30</span>
-                      <span>Todos os Dias</span>
+                    <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-around text-center text-[10px] uppercase tracking-wider text-zinc-300">
+                      <div>
+                        <span className="block font-bold text-white text-xs">3 Quadras</span>
+                        <span className="text-zinc-400">2 Cobertas + 1 Aberta</span>
+                      </div>
+                      <div className="h-5 w-px bg-white/15" />
+                      <div>
+                        <span className="block font-bold text-white text-xs">Até 23:30</span>
+                        <span className="text-zinc-400">Todos os Dias</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="mt-3 text-center sm:text-left flex items-center justify-between px-1 text-xs text-zinc-400">
-                  <span>Atendimento Locações:</span>
-                  <strong className="text-amber-400 font-bold">{CONTACTS.jefe.phoneDisplay}</strong>
+                  <div className="mt-3 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs text-zinc-400">
+                    <span>Atendimento Locações:</span>
+                    <strong className="text-amber-400 font-bold">{CONTACTS.jefe.phoneDisplay}</strong>
+                  </div>
                 </div>
               </div>
 
@@ -968,61 +971,61 @@ export default function HomePage() {
 
           {/* Grid Editorial 2 Colunas com Altura Proporcional e Equilíbrio Perfeito */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-            {/* Lado Esquerdo: Placeholder Vertical Sofisticado para Foto Oficial */}
+            {/* Lado Esquerdo: Foto Oficial da Profª Vivi Nunes */}
             <div className="lg:col-span-5 flex flex-col">
-              {/* <!-- TROCAR Pela Foto Real: Foto Oficial da Profª Vivi Nunes (Vertical 3:4 ou 4:5) --> */}
               <div
                 onMouseMove={handleCardMouseMove}
                 onMouseLeave={handleCardMouseLeave}
-                className="vivi-card-reveal card-clean spotlight-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden group border-amber-500/30"
+                className="vivi-card-reveal card-clean spotlight-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-full relative overflow-hidden group border-amber-500/30"
               >
                 {/* Glow sutil */}
                 <div className="absolute top-0 right-0 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Área da Foto com Proporção Vertical Definida (aspect 3:4) */}
-                <div className="relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#151821] border border-white/[0.08] flex flex-col items-center justify-between p-6 text-center shadow-inner">
+                <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-[#151821] border border-white/[0.08] shadow-xl group/img">
+                  <Image
+                    src="/vivinunes/vivinunes.jpeg"
+                    alt="Profª Vivi Nunes - Ex-atleta Profissional e Idealizadora do CT"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                    className="object-cover object-[center_22%] transition-transform duration-700 group-hover/img:scale-105"
+                    priority
+                  />
                   {/* Badge de cabeçalho */}
-                  <div className="w-full flex items-center justify-between z-10">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase bg-stone-950/75 backdrop-blur-md text-amber-400 border border-amber-500/30 shadow-lg">
                       Idealizadora do CT
                     </span>
-                    <div className="w-8 h-8 rounded-full bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                    <div className="w-8 h-8 rounded-full bg-stone-950/75 backdrop-blur-md border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-lg">
                       <Award className="w-4 h-4" />
                     </div>
                   </div>
+                </div>
 
-                  {/* Centro do Placeholder */}
-                  <div className="flex flex-col items-center justify-center my-auto py-4 z-10">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-amber-500/20 via-white/5 to-orange-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-xl mb-4">
-                      <Trophy className="w-10 h-10" />
-                    </div>
-                    <h4 className="font-heading text-xl font-bold text-white">
-                      Profª. Vivi Nunes
-                    </h4>
-                    <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mt-1">
-                      Ex-Atleta Profissional
-                    </p>
-                    <span className="mt-3 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-[11px] text-zinc-400 font-medium">
-                      Foto oficial em ensaio fotográfico
-                    </span>
-                  </div>
+                {/* Informações Oficiais da Profª Vivi */}
+                <div className="pt-4 pb-1 text-center">
+                  <h4 className="font-heading text-xl sm:text-2xl font-black text-white">
+                    Profª. Vivi Nunes
+                  </h4>
+                  <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mt-0.5">
+                    Ex-Atleta Profissional • Vôlei de Praia & Quadra
+                  </p>
 
-                  {/* Badges na Base do Placeholder */}
-                  <div className="w-full pt-3 border-t border-white/[0.08] flex items-center justify-around text-center text-[10px] uppercase tracking-wider text-zinc-400 z-10">
+                  <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-around text-center text-[10px] uppercase tracking-wider text-zinc-300">
                     <div>
                       <span className="block font-bold text-white text-xs">Múltiplos</span>
-                      <span>Títulos Estaduais</span>
+                      <span className="text-zinc-400">Títulos Estaduais</span>
                     </div>
-                    <div className="h-5 w-px bg-white/10" />
+                    <div className="h-5 w-px bg-white/15" />
                     <div>
                       <span className="block font-bold text-white text-xs">Nacional</span>
-                      <span>Etapas de Elite</span>
+                      <span className="text-zinc-400">Etapas de Elite</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Rodapé do Card da Esquerda */}
-                <div className="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-zinc-400">
+                <div className="mt-3 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs text-zinc-400">
                   <span>Atendimento Direto:</span>
                   <strong className="text-amber-400 font-bold">(49) 99804-3322</strong>
                 </div>
@@ -1169,26 +1172,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* <!-- TROCAR Pela Foto Real: Quadra 2 Coberta (Eloá) --> */}
+            {/* Quadra 2 Coberta (Eloá) */}
             <div
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
               className="estrutura-card card-clean spotlight-card rounded-2xl p-5 flex flex-col justify-between"
             >
               <div>
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-inner mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-2">
-                    <Trophy className="w-6 h-6" />
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] shadow-lg mb-4 group/q2">
+                  <Image
+                    src="/vivinunes/quadra2eloa.jpeg"
+                    alt="Quadra 2 • Eloá (Coberta) - CT Vivi Nunes"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover transition-transform duration-700 group-hover/q2:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F1115]/90 via-[#0F1115]/30 to-transparent pointer-events-none" />
+                  <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-950/70 backdrop-blur-md text-amber-400 border border-amber-500/30">
+                    Coberta
                   </div>
-                  <span className="font-heading font-bold text-sm text-white">
-                    Quadra 2 Coberta
-                  </span>
-                  <span className="text-xs font-semibold text-amber-400 mt-0.5">
-                    Eloá
-                  </span>
-                  <span className="mt-2 text-[10px] text-zinc-400 uppercase tracking-wider">
-                    Foto real em breve
-                  </span>
+                  <div className="absolute bottom-3 left-3 right-3 text-left">
+                    <span className="font-heading font-bold text-sm text-white drop-shadow">
+                      Quadra 2 • Eloá
+                    </span>
+                    <span className="block text-[11px] font-medium text-zinc-300">
+                      Areia Tratada Profunda
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-semibold mb-1.5">
@@ -1204,26 +1214,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* <!-- TROCAR Pela Foto Real: Quadra 3 Descoberta (Ao Ar Livre) --> */}
+            {/* Quadra 3 Descoberta (Ao Ar Livre) */}
             <div
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
               className="estrutura-card card-clean spotlight-card rounded-2xl p-5 flex flex-col justify-between"
             >
               <div>
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-inner mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-2">
-                    <Sun className="w-6 h-6" />
-                  </div>
-                  <span className="font-heading font-bold text-sm text-white">
-                    Quadra 3 Descoberta
-                  </span>
-                  <span className="text-xs font-semibold text-amber-400 mt-0.5">
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] shadow-lg mb-4 group/q3">
+                  <Image
+                    src="/vivinunes/fotoquadraaberta.jpeg"
+                    alt="Quadra 3 • Descoberta (Ao Ar Livre) - CT Vivi Nunes"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover transition-transform duration-700 group-hover/q3:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F1115]/90 via-[#0F1115]/30 to-transparent pointer-events-none" />
+                  <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-950/70 backdrop-blur-md text-amber-400 border border-amber-500/30">
                     Open Air
-                  </span>
-                  <span className="mt-2 text-[10px] text-zinc-400 uppercase tracking-wider">
-                    Foto real em breve
-                  </span>
+                  </div>
+                  <div className="absolute bottom-3 left-3 right-3 text-left">
+                    <span className="font-heading font-bold text-sm text-white drop-shadow">
+                      Quadra 3 • Descoberta
+                    </span>
+                    <span className="block text-[11px] font-medium text-zinc-300">
+                      Brisa Natural & Céu Aberto
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-1.5 text-amber-400 text-xs font-semibold mb-1.5">
