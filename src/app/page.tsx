@@ -133,11 +133,14 @@ export default function HomePage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [showWaModal, setShowWaModal] = useState(false);
   const [showFloatingBtn, setShowFloatingBtn] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Monitorar scroll para exibir o botão flutuante apenas após scrollY > 400px
+  // Monitorar scroll para navbar transparente no topo e botão flutuante apenas após scrollY > 600px
   useEffect(() => {
     const handleScroll = () => {
-      setShowFloatingBtn(window.scrollY > 400);
+      const y = window.scrollY;
+      setScrolled(y > 80);
+      setShowFloatingBtn(y > 600);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
@@ -198,11 +201,18 @@ export default function HomePage() {
       className="relative min-h-screen bg-[#0F1115] text-[#F4F4F5] overflow-x-hidden selection:bg-amber-500 selection:text-stone-950 font-body"
     >
       {/* ============================================================== */}
-      {/* A. NAVBAR EDITORIAL (Fixed com Glassmorphism & Botão Outline)  */}
+      {/* A. NAVBAR 100% TRANSPARENTE NO TOPO (com blur apenas no scroll) */}
       {/* ============================================================== */}
       <header
         id="main-navbar"
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0F1115]/85 backdrop-blur-md border-b border-white/[0.08]"
+        style={{
+          backgroundColor: scrolled ? "rgba(15, 17, 21, 0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.08)" : "none",
+          boxShadow: scrolled ? "0 10px 30px -10px rgba(0,0,0,0.5)" : "none",
+        }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
           {/* Logo Tipográfica Oficial */}
@@ -376,7 +386,7 @@ export default function HomePage() {
       {/* ============================================================== */}
       <section
         id="hero"
-        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-28 pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
+        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
       >
         {/* Layer 0: Imagem Desktop (16:9) */}
         <div className="hidden md:block absolute inset-0 z-0">
@@ -404,21 +414,24 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Layer 1: Overlays Direcionais (Leitura Perfeita sem preto puro) */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0F1115]/90 via-[#0F1115]/65 md:via-[#0F1115]/40 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115] via-[#0F1115]/40 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0F1115]/50 via-transparent to-transparent pointer-events-none" />
+        {/* Layer 1: Overlays Direcionais (Leve e cristalino para destacar a areia e a bola) */}
+        {/* Desktop: Gradiente lateral sutil */}
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-r from-[#0F1115]/85 via-[#0F1115]/35 to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 z-[1] bg-gradient-to-t from-[#0F1115] via-transparent to-transparent pointer-events-none" />
 
-        {/* Layer 2: Conteúdo Hero Alinhado à Esquerda no Desktop */}
-        <div className="relative z-10 max-w-[1200px] mx-auto my-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-6 pb-6">
+        {/* Mobile: Overlay clareado e suave que não sufoca a imagem */}
+        <div className="block md:hidden absolute inset-0 z-[1] bg-gradient-to-b from-[#0F1115]/65 via-transparent to-[#0F1115]/70 pointer-events-none" />
+
+        {/* Layer 2: Conteúdo Hero Alinhado */}
+        <div className="relative z-10 max-w-[1200px] mx-auto my-auto w-full flex flex-col items-center md:items-start text-center md:text-left pt-2 pb-4 sm:pt-6 sm:pb-6">
           <div className="max-w-2xl lg:max-w-3xl">
             {/* Status Badge com toque de Verde Esmeralda */}
-            <div className="hero-reveal inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1C202B]/90 border border-white/[0.08] backdrop-blur-md mb-6 shadow-lg shadow-black/40">
+            <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1C202B]/85 border border-white/[0.08] backdrop-blur-md mb-4 sm:mb-6 shadow-lg shadow-black/40">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
-              <span className="text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400">
                 Aberto Todos os Dias até as 23:30
               </span>
               <span className="text-zinc-600 hidden sm:inline">•</span>
@@ -427,42 +440,39 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* H1 Imponente com Outfit */}
-            <h1 className="hero-reveal font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]">
+            {/* H1 com clamp no mobile e contraste refinado em Playfair Display */}
+            <h1 className="hero-reveal font-heading font-extrabold text-[clamp(2rem,7vw,2.5rem)] sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.12]">
               Viva a energia da praia no{" "}
-              <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="font-playfair text-amber-400 font-semibold italic inline-block drop-shadow-[0_2px_12px_rgba(245,158,11,0.25)]">
                 coração de Videira
               </span>
               .
             </h1>
 
-            {/* Subtítulo em Inter com cor cinza suave #A1A1AA */}
-            <p className="hero-reveal mt-5 text-base sm:text-lg text-[#A1A1AA] font-normal leading-relaxed max-w-xl">
-              Complexo com 3 quadras oficiais de areia higienizada para{" "}
-              <strong className="text-white font-semibold">Beach Tennis</strong>,{" "}
-              <strong className="text-white font-semibold">Vôlei de Praia</strong> e{" "}
-              <strong className="text-white font-semibold">Futevôlei</strong>, além de aulas exclusivas com a ex-atleta profissional{" "}
-              <strong className="text-amber-400 font-semibold">Vivi Nunes</strong>.
+            {/* Subtítulo mais curto, leve (font-weight: 300, font-size: 0.95rem, max 3 linhas) */}
+            <p className="hero-reveal mt-3 sm:mt-5 text-[0.95rem] sm:text-base md:text-lg text-zinc-200 sm:text-[#A1A1AA] font-light leading-snug sm:leading-relaxed max-w-xl">
+              3 quadras de areia (2 cobertas e 1 aberta) para Vôlei, Beach Tennis e Futevôlei. Treine com a ex-atleta profissional{" "}
+              <strong className="text-amber-400 font-medium">Vivi Nunes</strong>.
             </p>
 
-            {/* Ação Dupla com Botão Solar Orange Primário */}
-            <div className="hero-reveal mt-8 flex flex-col sm:flex-row items-center md:items-start gap-4 w-full sm:w-auto">
+            {/* Ação Dupla com Botões Elegantes e Compactos no Mobile (padding: 12px 20px, font-size: 0.85rem) */}
+            <div className="hero-reveal mt-5 sm:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2.5 sm:gap-4 w-full sm:w-auto">
               <a
                 href={CONTACTS.jefe.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 shadow-xl shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-4 rounded-full text-[0.85rem] sm:text-sm font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-stone-950 shadow-xl shadow-orange-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                <MessageCircle className="w-5 h-5 fill-stone-950 stroke-none" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 fill-stone-950 stroke-none" />
                 <span>Alugar Quadra com Jefe</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
 
               <Link
                 href="#professores"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-bold text-zinc-200 bg-[#1C202B]/80 hover:bg-[#1C202B] border border-white/[0.08] hover:border-amber-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-4 rounded-full text-[0.85rem] sm:text-sm font-bold text-zinc-200 bg-[#1C202B]/85 hover:bg-[#1C202B] border border-white/[0.08] hover:border-amber-500/40 transition-all duration-300 hover:scale-105 active:scale-95"
               >
-                <Trophy className="w-4 h-4 text-amber-400" />
+                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
                 <span>Aulas com Profª Vivi</span>
               </Link>
             </div>
@@ -470,30 +480,51 @@ export default function HomePage() {
         </div>
 
         {/* Layer 2: Barra Inferior de Autoridade & Trust Badges */}
-        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-6 pt-5 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-4 text-center md:text-left">
-          <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-            <div className="flex text-amber-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
-              ))}
+        <div className="hero-reveal relative z-10 max-w-[1200px] mx-auto w-full mt-4 sm:mt-6 pt-3 sm:pt-5 border-t border-white/[0.08]">
+          {/* Versão Mobile Compacta (1 linha limpa com badges) */}
+          <div className="flex sm:hidden items-center justify-between text-[11px] font-medium text-zinc-300 px-1">
+            <div className="flex items-center gap-1.5">
+              <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
+              <span>5.0 no Google</span>
             </div>
-            <span className="text-xs sm:text-sm font-medium text-zinc-300">
-              5.0 no Google (Areia Limpa & Fofa)
-            </span>
+            <span className="text-zinc-600">•</span>
+            <div className="flex items-center gap-1.5">
+              <Trophy className="w-3.5 h-3.5 text-amber-400" />
+              <span>3 Quadras</span>
+            </div>
+            <span className="text-zinc-600">•</span>
+            <div className="flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Até 23:30</span>
+            </div>
           </div>
 
-          <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-            <Trophy className="w-4 h-4 text-amber-400" />
-            <span className="text-xs sm:text-sm font-medium text-zinc-300">
-              3 Quadras: 2 Cobertas (Yago & Eloá) + 1 Aberta
-            </span>
-          </div>
+          {/* Versão Desktop Completa */}
+          <div className="hidden sm:grid grid-cols-3 gap-4 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400 stroke-amber-400" />
+                ))}
+              </div>
+              <span className="text-xs sm:text-sm font-medium text-zinc-300">
+                5.0 no Google (Areia Limpa & Fofa)
+              </span>
+            </div>
 
-          <div className="flex items-center justify-center md:justify-start gap-2 py-1">
-            <Clock className="w-4 h-4 text-emerald-400" />
-            <span className="text-xs sm:text-sm font-medium text-zinc-300">
-              Todos os Dias até 23:30 (Iluminação LED)
-            </span>
+            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+              <Trophy className="w-4 h-4 text-amber-400" />
+              <span className="text-xs sm:text-sm font-medium text-zinc-300">
+                3 Quadras: 2 Cobertas (Yago & Eloá) + 1 Aberta
+              </span>
+            </div>
+
+            <div className="flex items-center justify-center md:justify-start gap-2 py-1">
+              <Clock className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs sm:text-sm font-medium text-zinc-300">
+                Todos os Dias até 23:30 (Iluminação LED)
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -1441,14 +1472,14 @@ export default function HomePage() {
       </footer>
 
       {/* ============================================================== */}
-      {/* D. FLOATING WHATSAPP CTA (Aparece somente após scrollY > 400px) */}
+      {/* D. FLOATING WHATSAPP CTA (Aparece somente após scrollY > 600px) */}
       {/* ============================================================== */}
       <aside
         aria-label="Atendimento WhatsApp CT Vivi Nunes"
-        className={`fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2.5 transition-all duration-300 ${
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 transition-all duration-500 ${
           showFloatingBtn
             ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 translate-y-4 pointer-events-none"
+            : "opacity-0 translate-y-8 pointer-events-none"
         }`}
       >
         {/* Modal de canais de WhatsApp */}

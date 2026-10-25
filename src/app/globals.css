@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -6,8 +7,6 @@
     --bg-alt: #151821;
     --bg-card: #1C202B;
     --border-card: rgba(255, 255, 255, 0.08);
-    --text-primary: #F4F4F5;
-    --text-muted: #A1A1AA;
     --solar-orange: #FF8A00;
     --solar-amber: #F59E0B;
     --emerald-accent: #10B981;
@@ -20,22 +19,48 @@ html {
 }
 
 body {
-  background-color: #0F1115;
-  color: #F4F4F5;
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0F1115 !important;
+  color: #F4F4F5 !important;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-weight: 300 !important;
   overflow-x: hidden;
 }
 
-/* Tipografia Esportiva de Alto Padrão */
+/* 1. TIPOGRAFIA FORÇADA COM CONTRASTE ELEGANTE */
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-outfit), sans-serif;
-  letter-spacing: -0.02em;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  letter-spacing: -0.025em;
   line-height: 1.15;
 }
 
-p, li, .font-body {
-  font-family: var(--font-inter), sans-serif;
-  line-height: 1.6;
+/* Fonte Oswald para números, tags esportivas e badges */
+.font-oswald {
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Fonte Playfair Display Italic para toque de luxo nos destaques */
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+}
+
+/* Forçar peso 300 leve nos parágrafos e listas para leitura leve e sem aspecto pesado */
+body, .font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+p, li {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.015em;
+  line-height: 1.65;
+}
+
+strong, b {
+  font-weight: 600 !important;
 }
 
 /* Custom Selection */
@@ -46,7 +71,7 @@ p, li, .font-body {
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0F1115;
@@ -59,7 +84,7 @@ p, li, .font-body {
   background: #3F3F46;
 }
 
-/* Estilo padronizado de cards */
+/* Estilo padronizado de cards clean */
 .card-clean {
   background-color: #1C202B;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -69,19 +94,19 @@ p, li, .font-body {
 .card-clean:hover {
   transform: translateY(-4px);
   border-color: rgba(245, 158, 11, 0.35);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
 /* Card com destaque especial de Vôlei de Praia */
 .card-featured {
   background-color: #1C202B;
-  border: 1px solid rgba(245, 158, 11, 0.45);
+  border: 1px solid rgba(245, 158, 11, 0.55);
   box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.15);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card-featured:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 138, 0, 0.8);
+  border-color: rgba(255, 138, 0, 0.85);
   box-shadow: 0 20px 30px -5px rgba(245, 158, 11, 0.25);
 }
