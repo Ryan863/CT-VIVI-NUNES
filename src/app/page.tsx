@@ -332,7 +332,7 @@ export default function HomePage() {
             href="#hero"
             className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-xl py-1 px-2 -ml-2 transition-colors hover:bg-white/5"
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <div className="flex items-center gap-2">
                 <span className="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
                   CT
@@ -342,8 +342,8 @@ export default function HomePage() {
                 </span>
                 <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
               </div>
-              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-zinc-400 group-hover:text-amber-300 transition-colors -mt-0.5">
-                Complexo de Areia • Videira - SC
+              <span className="text-[10px] font-semibold tracking-[0.25em] uppercase text-zinc-400 group-hover:text-amber-300 transition-colors text-center w-full -mt-0.5">
+                Videira - SC
               </span>
             </div>
           </Link>
