@@ -53,6 +53,14 @@ async function run() {
     const spotlightCards = desktopPage.locator('.spotlight-card');
     console.log('Spotlight cards total count:', await spotlightCards.count());
 
+    // Assert Aurora Background Animation
+    const auroraEl = desktopPage.locator('.animate-aurora');
+    console.log('Aurora animation element count:', await auroraEl.count());
+    
+    // Screenshot Hero with Aurora
+    await desktopPage.screenshot({ path: 'test-hero-aurora.png', clip: { x: 0, y: 0, width: 1440, height: 900 } });
+    console.log('Saved test-hero-aurora.png');
+
     // Assert Modalidade Cards animated via GSAP
     const modalidadeCards = desktopPage.locator('.modalidade-card');
     console.log('Modalidade cards count:', await modalidadeCards.count());

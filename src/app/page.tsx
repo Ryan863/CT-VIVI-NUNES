@@ -6,6 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import {
   Calendar,
   Clock,
@@ -507,9 +508,9 @@ export default function HomePage() {
       {/* ============================================================== */}
       {/* B. 1ª DOBRA: HERO SECTION (Alinhamento Nobre & Contraste)      */}
       {/* ============================================================== */}
-      <section
+      <AuroraBackground
         id="hero"
-        className="relative isolate min-h-[100dvh] flex flex-col justify-between pt-20 pb-4 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] overflow-hidden"
+        className="relative isolate min-h-[100dvh] h-auto flex flex-col justify-between pt-20 pb-4 sm:pt-28 sm:pb-14 px-4 sm:px-6 bg-[#0F1115] text-[#F4F4F5] overflow-hidden"
       >
         {/* Layer 0: Imagem Desktop (16:9) */}
         <div className="hidden md:block absolute inset-0 z-0">
@@ -613,7 +614,7 @@ export default function HomePage() {
 
         {/* Gradiente de Fusão Orgânica da Areia no Rodapé da Hero (Elimina cortes bruscos da foto) */}
         <div className="absolute bottom-0 left-0 right-0 h-36 sm:h-56 bg-gradient-to-t from-[#0F1115] via-[#0F1115]/80 to-transparent pointer-events-none z-[2]" />
-      </section>
+      </AuroraBackground>
 
       {/* ============================================================== */}
       {/* DIVISOR EDITORIAL LEVE & PROFISSIONAL (Transição 21st-dev)     */}

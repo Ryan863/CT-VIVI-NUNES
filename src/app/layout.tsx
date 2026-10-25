@@ -130,7 +130,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${oswald.variable} scroll-smooth antialiased`}
+      className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${oswald.variable} dark scroll-smooth antialiased`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
