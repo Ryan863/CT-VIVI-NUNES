@@ -179,142 +179,130 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Orquestração GSAP de Alta Performance (Respeitando prefers-reduced-motion)
+  // Orquestração GSAP de Alta Performance e Visibilidade
   useGSAP(
     () => {
-      const mm = gsap.matchMedia();
+      // 1. Hero Reveal com Stagger nobre
+      gsap.fromTo(
+        ".hero-reveal",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: "power3.out",
+          delay: 0.15,
+          clearProps: "all",
+        }
+      );
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // 1. Hero Reveal com Stagger nobre
-        gsap.fromTo(
-          ".hero-reveal",
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power3.out",
-            delay: 0.1,
-            clearProps: "all",
-          }
-        );
+      // 2. Divisor Hero Leve com Expansão Suave
+      gsap.fromTo(
+        ".hero-divider-reveal",
+        { opacity: 0, scale: 0.9 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.45,
+          clearProps: "opacity",
+        }
+      );
 
-        // 2. Divisor Hero Leve com Expansão Suave
-        gsap.fromTo(
-          ".hero-divider-reveal",
-          { opacity: 0, scale: 0.9 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.8,
-            ease: "power2.out",
-            delay: 0.5,
-            clearProps: "opacity",
-          }
-        );
+      // 3. Modalidades: Entrada orquestrada dos 4 cards de esportes
+      gsap.fromTo(
+        ".modalidade-card",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#modalidades",
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
 
-        // 3. Modalidades: Entrada orquestrada dos 4 cards de esportes
-        gsap.fromTo(
-          ".modalidade-card",
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.65,
-            stagger: 0.1,
-            ease: "power2.out",
-            clearProps: "all",
-            scrollTrigger: {
-              trigger: "#modalidades",
-              start: "top 82%",
-              once: true,
-            },
-          }
-        );
+      // 4. Locação & Jefe: Revelação elegante
+      gsap.fromTo(
+        ".jefe-card-reveal",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#locacao",
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
 
-        // 4. Locação & Jefe: Revelação elegante
-        gsap.fromTo(
-          ".jefe-card-reveal",
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.75,
-            ease: "power2.out",
-            clearProps: "all",
-            scrollTrigger: {
-              trigger: "#locacao",
-              start: "top 85%",
-              once: true,
-            },
-          }
-        );
+      // 5. Professores & Vivi: Revelação editorial
+      gsap.fromTo(
+        ".vivi-card-reveal",
+        { y: 35, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#professores",
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
 
-        // 5. Professores & Vivi: Revelação editorial
-        gsap.fromTo(
-          ".vivi-card-reveal",
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.75,
-            ease: "power2.out",
-            clearProps: "all",
-            scrollTrigger: {
-              trigger: "#professores",
-              start: "top 85%",
-              once: true,
-            },
-          }
-        );
+      // 6. Estrutura das 3 Quadras: Stagger das quadras
+      gsap.fromTo(
+        ".estrutura-card",
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#estrutura",
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
 
-        // 6. Estrutura das 3 Quadras: Stagger das quadras
-        gsap.fromTo(
-          ".estrutura-card",
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.65,
-            stagger: 0.12,
-            ease: "power2.out",
-            clearProps: "all",
-            scrollTrigger: {
-              trigger: "#estrutura",
-              start: "top 82%",
-              once: true,
-            },
-          }
-        );
-
-        // 7. Avaliações Google 5.0: Stagger de prova social
-        gsap.fromTo(
-          ".avaliacao-card",
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.65,
-            stagger: 0.1,
-            ease: "power2.out",
-            clearProps: "all",
-            scrollTrigger: {
-              trigger: "#avaliacoes",
-              start: "top 85%",
-              once: true,
-            },
-          }
-        );
-      });
-
-      // Acessibilidade: instantâneo para usuários que preferem menos movimento
-      mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.set(
-          ".hero-reveal, .hero-divider-reveal, .modalidade-card, .jefe-card-reveal, .vivi-card-reveal, .estrutura-card, .avaliacao-card",
-          { opacity: 1, y: 0, scale: 1 }
-        );
-      });
+      // 7. Avaliações Google 5.0: Stagger de prova social
+      gsap.fromTo(
+        ".avaliacao-card",
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power2.out",
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: "#avaliacoes",
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
     },
     { scope: containerRef }
   );
