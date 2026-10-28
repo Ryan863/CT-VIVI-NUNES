@@ -1137,26 +1137,33 @@ export default function HomePage() {
 
           {/* Grid da Galeria das 3 Quadras com Efeito Spotlight 21st-dev */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {/* <!-- TROCAR Pela Foto Real: Quadra 1 Coberta (Yago) --> */}
+            {/* Quadra 1 Coberta (Yago) */}
             <div
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
               className="estrutura-card card-clean spotlight-card rounded-2xl p-5 flex flex-col justify-between"
             >
               <div>
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-inner mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-2">
-                    <Trophy className="w-6 h-6" />
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-[#1C202B] border border-white/[0.08] shadow-lg mb-4 group/q1">
+                  <Image
+                    src="/vivinunes/quadra1yago.jpeg"
+                    alt="Quadra 1 • Yago (Coberta) - CT Vivi Nunes"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 380px"
+                    className="object-cover transition-transform duration-700 group-hover/q1:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F1115]/90 via-[#0F1115]/30 to-transparent pointer-events-none" />
+                  <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-stone-950/70 backdrop-blur-md text-amber-400 border border-amber-500/30">
+                    Coberta
                   </div>
-                  <span className="font-heading font-bold text-sm text-white">
-                    Quadra 1 Coberta
-                  </span>
-                  <span className="text-xs font-semibold text-amber-400 mt-0.5">
-                    Yago
-                  </span>
-                  <span className="mt-2 text-[10px] text-zinc-400 uppercase tracking-wider">
-                    Foto real em breve
-                  </span>
+                  <div className="absolute bottom-3 left-3 right-3 text-left">
+                    <span className="font-heading font-bold text-sm text-white drop-shadow">
+                      Quadra 1 • Yago
+                    </span>
+                    <span className="block text-[11px] font-medium text-zinc-300">
+                      Areia Tratada Profunda
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-semibold mb-1.5">
