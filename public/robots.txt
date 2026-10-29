@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ct-vivi-nunes.vercel.app/sitemap.xml
