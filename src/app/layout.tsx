@@ -46,7 +46,8 @@ export const metadata: Metadata = {
     "Locação de Quadras Videira",
     "Professora Vivi Nunes",
     "Vôlei de areia Santa Catarina",
-    "Santa Lúcia Videira",
+    "Alto da Boa Vista Videira",
+    "Nossa Senhora Aparecida Videira",
   ],
   authors: [{ name: "CT Vivi Nunes" }, { name: "Profª Vivi Nunes" }],
   creator: "CT Vivi Nunes",
@@ -134,10 +135,9 @@ export default function RootLayout({
     telephone: "+55-49-99948-6797",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "R. Benedito Tomaz Scussiato, 200",
+      streetAddress: "Rua Nossa Senhora Aparecida, s/n",
       addressLocality: "Videira",
       addressRegion: "SC",
-      postalCode: "89565-350",
       addressCountry: "BR",
     },
     geo: {

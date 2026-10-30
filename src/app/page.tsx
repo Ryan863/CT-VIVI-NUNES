@@ -90,12 +90,12 @@ export const CONTACTS = {
   },
   location: {
     address:
-      "R. Benedito Tomaz Scussiato, 200 - Bairro Santa Lúcia, Videira - SC, 89565-350",
-    shortAddress: "Santa Lúcia, Videira - SC",
+      "Rua Nossa Senhora Aparecida - Bairro Alto da Boa Vista, Videira - SC",
+    shortAddress: "Alto da Boa Vista, Videira - SC",
     googleMapsDirections:
-      "https://www.google.com/maps/search/?api=1&query=R.+Benedito+Tomaz+Scussiato%2C+200+-+Santa+L%C3%BAcia%2C+Videira+-+SC%2C+89565-350",
+      "https://www.google.com/maps/search/?api=1&query=Rua+Nossa+Senhora+Aparecida+-+Alto+da+Boa+Vista%2C+Videira+-+SC",
     mapsEmbedUrl:
-      "https://www.google.com/maps?q=Rua+Benedito+Tomaz+Scussiato,+200+-+Santa+L%C3%BAcia,+Videira+-+SC,+89565-350&output=embed",
+      "https://www.google.com/maps?q=Rua+Nossa+Senhora+Aparecida+-+Alto+da+Boa+Vista,+Videira+-+SC&output=embed",
   },
   social: {
     instagram: "https://www.instagram.com/ct_vivinunes",
@@ -463,7 +463,7 @@ export default function HomePage() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-amber-400 flex items-center justify-between"
               >
-                <span>Localização no Santa Lúcia</span>
+                <span>Localização no Alto da Boa Vista</span>
                 <ArrowRight className="w-4 h-4 text-zinc-500" />
               </Link>
 
@@ -1480,7 +1480,7 @@ export default function HomePage() {
               Localização & Canais de Atendimento
             </h2>
             <p className="mt-3 text-[#A1A1AA] text-sm sm:text-base leading-relaxed">
-              Nova sede ampla no bairro Santa Lúcia, em Videira - SC. Fácil estacionamento e acesso rápido.
+              Localizado na Rua Nossa Senhora Aparecida, no bairro Alto da Boa Vista, em Videira - SC. Fácil estacionamento e acesso rápido.
             </p>
           </div>
 
@@ -1504,7 +1504,7 @@ export default function HomePage() {
               <div className="mt-4 pt-3 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="text-xs text-[#A1A1AA] text-center sm:text-left">
                   <strong className="text-white block font-medium">Endereço Oficial:</strong>
-                  <span>R. Benedito Tomaz Scussiato, 200 - Santa Lúcia, Videira - SC</span>
+                  <span>Rua Nossa Senhora Aparecida - Bairro Alto da Boa Vista, Videira - SC</span>
                 </div>
                 <a
                   href={CONTACTS.location.googleMapsDirections}
@@ -1727,7 +1727,7 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link href="#localizacao" className="hover:text-amber-400 transition-colors">
-                    Localização no Santa Lúcia
+                    Localização no Alto da Boa Vista
                   </Link>
                 </li>
               </ul>
@@ -1746,7 +1746,7 @@ export default function HomePage() {
                   <strong className="text-white">Aulas (Profª. Vivi Nunes):</strong> (49) 99804-3322
                 </p>
                 <p className="pt-1.5 text-zinc-400 text-xs">
-                  R. Benedito Tomaz Scussiato, 200 - Santa Lúcia, Videira - SC
+                  Rua Nossa Senhora Aparecida - Bairro Alto da Boa Vista, Videira - SC
                 </p>
               </div>
             </div>
