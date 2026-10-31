@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ct-vivi-nunes.vercel.app"),
+  metadataBase: new URL("https://ctvivinunes.com.br"),
   title: "CT Vivi Nunes | Complexo de Areia em Videira - SC • Locação de Quadras e Aulas",
   description:
     "Complexo de areia oficial em Videira - SC. 3 quadras (2 cobertas e 1 aberta) para Vôlei de Praia, Beach Tennis e Futevôlei. Aulas com a Profª Vivi Nunes e locação de horários com Jefe. Reserve pelo WhatsApp!",
